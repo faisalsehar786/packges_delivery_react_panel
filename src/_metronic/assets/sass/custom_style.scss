@@ -1,9 +1,9 @@
 .authbgcolor {
-  background: #001b5c !important;
+  background: #96bd2c !important;
 }
 
 .authtext {
-  color: #001b5c !important;
+  color: #96bd2c !important;
 }
 
 .bg-ch-header {
@@ -323,15 +323,18 @@
 }
 
 .menu-state-bullet-primary .menu-item .menu-link.active {
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .menu-state-bullet-primary .menu-item .menu-link.active.notparent {
   border-right: none;
 }
 
+.bg-darkgreen {
+  background-color: #042c33 !important;
+}
 .menu-state-bullet-primary .menu-item .menu-link.active.haveparent {
-  border-right: 2px solid #3699ff;
+  border-right: 2px solid #96bd2c;
 
   // hover
   &:hover {
@@ -362,18 +365,18 @@
   border-radius: 0.475rem;
 }
 
-.active {
+body .active {
   .aside .menu > div .menu-item > .menu-link .menu-icon i,
   .aside .menu > div .menu-item > .menu-link .menu-icon .svg-icon {
-    color: #3699ff;
+    color: #96bd2c !important;
   }
 }
 
-.menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
+body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
 .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon .svg-icon,
 .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon i .svg-icon svg {
-  fill: #3699ff;
-  color: #3699ff;
+  fill: #96bd2c !important;
+  color: #96bd2c !important;
 }
 
 .menu-item .menu-link .menu-icon .svg-icon {
@@ -708,12 +711,12 @@ a:not(.btn) {
 }
 
 .color-primary {
-  color: #001b5c !important;
+  color: #96bd2c !important;
 }
 
 .btn-primary,
 .btn-info {
-  background: #001b5c !important;
+  background: #96bd2c !important;
   height: 46px !important;
   border-radius: 8px !important;
 }
@@ -1091,7 +1094,7 @@ textarea {
 
     select {
       height: 35px !important;
-      color: #001b5c;
+      color: #96bd2c;
 
       &::after {
         content: '';
@@ -1101,8 +1104,8 @@ textarea {
         transform: translateY(-50%);
         border-style: solid;
         border-width: 6px 6px 0 6px;
-        border-color: #001b5c transparent transparent transparent;
-        color: #001b5c;
+        border-color: #96bd2c transparent transparent transparent;
+        color: #96bd2c;
         /* Set the color of the icon */
       }
     }
@@ -1119,7 +1122,7 @@ textarea {
       margin-left: 10px;
 
       h5 {
-        color: #001b5c;
+        color: #96bd2c;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -1137,7 +1140,7 @@ textarea {
       align-items: center;
       border: 2px solid #f1f2fa;
       border-radius: 10px;
-      color: #001b5c;
+      color: #96bd2c;
       display: flex;
       flex-direction: column;
       height: 50px;
@@ -1154,7 +1157,7 @@ textarea {
       }
     }
     .amount {
-      color: #001b5c;
+      color: #96bd2c;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
@@ -1274,7 +1277,7 @@ textarea {
 
     select {
       height: 35px !important;
-      color: #001b5c;
+      color: #96bd2c;
 
       &::after {
         content: '';
@@ -1284,8 +1287,8 @@ textarea {
         transform: translateY(-50%);
         border-style: solid;
         border-width: 6px 6px 0 6px;
-        border-color: #001b5c transparent transparent transparent;
-        color: #001b5c;
+        border-color: #96bd2c transparent transparent transparent;
+        color: #96bd2c;
         /* Set the color of the icon */
       }
     }
@@ -1302,7 +1305,7 @@ textarea {
       margin-left: 10px;
 
       h5 {
-        color: #001b5c;
+        color: #96bd2c;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -1320,7 +1323,7 @@ textarea {
       align-items: center;
       border: 2px solid #f1f2fa;
       border-radius: 10px;
-      color: #001b5c;
+      color: #96bd2c;
       display: flex;
       flex-direction: column;
       height: 50px;
@@ -1337,7 +1340,7 @@ textarea {
       }
     }
     .amount {
-      color: #001b5c;
+      color: #96bd2c;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
@@ -1431,13 +1434,13 @@ textarea {
 .far,
 .fas,
 .fat {
-  color: #001b5c;
+  color: #96bd2c;
 }
 .border {
   border: 1px solid #c6e0ec !important;
 }
 i.bi {
-  color: #001b5c;
+  color: #96bd2c;
 }
 .ck-content a i {
   color: #009ef7 !important;
@@ -1602,4 +1605,12 @@ body .textareapushnoti {
 
 body > hmr-error-overlay {
   display: none;
+}
+
+.menu-state-primary .menu-item .menu-link.active .menu-title {
+  color: #042c33;
+}
+
+.menu-state-icon-primary .menu-item .menu-link.active .menu-icon i {
+  color: #042c33;
 }
