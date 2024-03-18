@@ -1,8 +1,8 @@
 {
-  "name": "stotte-admin-frontend",
+  "name": "hyhm",
   "version": "1.9.17",
   "private": true,
-  "author": "Støtte AS",
+  "author": "Faisal Khan",
   "homepage": "",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
