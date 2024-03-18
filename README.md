@@ -2,8 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Dev link: https://main--hyhm.netlify.app
-Backend Dev link: https://main--hyhm.netlify.app
+Dev link: https://main--hyhm.netlify.app,https://hyhm.netlify.app
+
+Backend Dev link: https://hmhy-backend-908a7d410351.herokuapp.com
 
 ## Available Scripts
 
