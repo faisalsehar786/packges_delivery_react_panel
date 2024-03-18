@@ -2,7 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Dev link: https://admin.stotte.no/dashboard
+Dev link: https://main--hyhm.netlify.app
+Backend Dev link: https://main--hyhm.netlify.app
 
 ## Available Scripts
 
