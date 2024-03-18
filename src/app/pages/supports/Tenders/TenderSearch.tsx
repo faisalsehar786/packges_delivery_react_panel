@@ -69,7 +69,7 @@ const TenderSearch: React.FC = () => {
 
   useEffect(() => {
     if (value) {
-      navigate(`/home/formalSingle/${value.value}`)
+      navigate(`/home/published_job/${value.value}`)
     }
   }, [value])
 
