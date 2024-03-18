@@ -98,8 +98,8 @@ export default function TenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall formål'
-              description='totalt fra alle organisasjoner'
+              title='Total Jobs'
+              // description='totalt fra alle organisasjoner'
               numbertext={stats?.total}
             />
           </div>
@@ -109,8 +109,8 @@ export default function TenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall støttespillere'
-              description='totalt fra alle organisasjoner'
+              title='Jobs awaiting for payment'
+              // description='totalt fra alle organisasjoner'
               numbertext={stats?.order_awaiting_for_payment}
             />
           </div>
@@ -119,8 +119,8 @@ export default function TenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Total støtte mottat'
-              description='totalt fra alle organisasjoner'
+              title='Jobs on processing'
+              // description='Jobs on processing'
               numbertext={stats?.order_processing}
             />
           </div>
@@ -129,8 +129,8 @@ export default function TenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Aktive formål'
-              description='totalt fra alle organisasjoner'
+              title='Jobs completed'
+              // description='Jobs completed '
               numbertext={stats?.order_completed}
             />
           </div>

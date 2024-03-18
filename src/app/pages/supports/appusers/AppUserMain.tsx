@@ -9,7 +9,7 @@ import AppUserSearch from './AppUserSearch'
 
 export default function AppUserMain() {
   const [stats, setStats] = useState<any>()
-  const [role, setRole] = useState<any>('driver')
+  const [role, setRole] = useState<any>('all')
   const [statsuser, setStatsUser] = useState<any>()
   const { setLoading } = useContext(LoadingContext)
 
@@ -52,8 +52,8 @@ export default function AppUserMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall organisasjoner'
-              description='totalt på støtte plattformen'
+              title='Total App Users '
+              // description='totalt på støtte plattformen'
               numbertext={statsuser?.total}
             />
           </div>
@@ -63,8 +63,8 @@ export default function AppUserMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Aktive organisasjoner'
-              description='totalt på støtte plattformen'
+              title='Total Drivers'
+              // description='totalt på støtte plattformen'
               numbertext={statsuser?.user_type_driver_count}
             />
           </div>
@@ -74,8 +74,8 @@ export default function AppUserMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall støttespillere'
-              description='totalt fra alle organisasjoner'
+              title='Total Customer'
+              // description='totalt fra alle organisasjoner'
               numbertext={statsuser?.user_type_customer_count}
             />
           </div>
@@ -84,8 +84,8 @@ export default function AppUserMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Total støtte mottat'
-              description='Fra alle støttespillere'
+              title='Drivers Accepted Jobs'
+              // description='Fra alle customer'
               numbertext={stats?.driver_order_accepted}
             />
           </div>

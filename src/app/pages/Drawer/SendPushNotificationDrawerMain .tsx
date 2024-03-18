@@ -99,7 +99,7 @@ const SendPushNotificationDrawerMain: FC = () => {
 
             <div className='ms-4'>
               <h3 className='fs-5 fw-bolder text-gray-900 mb-0'>Send push varsel</h3>
-              <span className='fw-bold fs-7 text-gray-400'>Til en eller alle støttespillere</span>
+              <span className='fw-bold fs-7 text-gray-400'>Til en eller alle customer</span>
             </div>
           </div>
 
@@ -207,7 +207,7 @@ const SendPushNotificationDrawerMain: FC = () => {
                         {sendToUser ? (
                           <div className='d-flex flex-column mb-7 fv-row fv-plugins-icon-container '>
                             <label className='d-flex align-items-center fs-6 fw-bold mb-2'>
-                              <span className=''>Støttespillere</span>
+                              <span className=''>Customer</span>
                             </label>
                             <PushStottespillereSearch
                               submit={submit}

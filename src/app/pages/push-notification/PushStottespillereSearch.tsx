@@ -78,7 +78,7 @@ const PushStottespillereSearch = (props: any) => {
       components={{
         DropdownIndicator: null,
       }}
-      placeholder='Søk støttespillere...'
+      placeholder='Søk customer...'
       className='w-100'
       styles={{
         control: (provided) => ({

@@ -47,8 +47,8 @@ export default function ActiveTenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall organisasjoner'
-              description='totalt på støtte plattformen'
+              title='Jobs Total'
+              // description='totalt på støtte plattformen'
               numbertext={stats?.total}
             />
           </div>
@@ -58,8 +58,8 @@ export default function ActiveTenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Aktive organisasjoner'
-              description='totalt på støtte plattformen'
+              title='Jobs on processing'
+              // description='totalt på støtte plattformen'
               numbertext={stats?.order_processing}
             />
           </div>
@@ -69,8 +69,8 @@ export default function ActiveTenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Antall støttespillere'
-              description='totalt fra alle organisasjoner'
+              title='Jobs awaiting for payment'
+              // description='totalt fra alle organisasjoner'
               numbertext={stats?.order_awaiting_for_payment}
             />
           </div>
@@ -79,8 +79,8 @@ export default function ActiveTenderMain() {
               className='card-xl-stretch mb-xl-10 card_borderC min-h-240px'
               backGroundColor='#ffff'
               chartHeight='60px'
-              title='Total støtte mottat'
-              description='Fra alle støttespillere'
+              title='Jobs Payments Done'
+              // description='Fra alle customer'
               numbertext={stats?.order_payment_done}
             />
           </div>

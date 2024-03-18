@@ -173,7 +173,7 @@ function AsideMenuMain2(props: any) {
                 data-bs-trigger='hover'
                 data-bs-dismiss='click'
                 data-bs-placement='right'
-                data-bs-original-title='Støttespillere'
+                data-bs-original-title='Customer'
                 href=''
                 id='kt_pushnotification_toggle'
               >

@@ -177,7 +177,7 @@ const SendPushNotification: React.FC = () => {
               {sendToUser ? (
                 <div className='d-flex flex-column mb-8 fv-row fv-plugins-icon-container '>
                   <label className='d-flex align-items-center fs-6 fw-bold mb-2'>
-                    <span className=''>Støttespillere</span>
+                    <span className=''>Customer</span>
                   </label>
                   <PushStottespillereSearch pushTokenProp={setpushToken} />
                   <div className='fv-plugins-message-container invalid-feedback' />

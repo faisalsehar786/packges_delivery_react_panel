@@ -25,7 +25,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
         <div className='d-flex align-items-center'>
           <div
             className='img-wrapper me-5 pointer'
-            onClick={() => navigation(`/home/formalSingle/${goal?._id}`)}
+            onClick={() => navigation(`/home/published_job/${goal?._id}`)}
           >
             {getLogo() ? (
               <img
@@ -47,7 +47,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
           </div>
           <div className='d-flex justify-content-start flex-column'>
             <Link
-              to={`/home/organisasjonerSingle/${goal?._id}`}
+              to={`/home/published_job/${goal?._id}`}
               className='text-dark fw-bold text-hover-primary mb-1 fs-6'
             >
               {goal?.title}
@@ -83,6 +83,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
       </td>
       <td className='text-end'>
         <span
+          onClick={() => navigation(`/home/published_job/${goal?._id}`)}
           className={classNames('btn btn-sm', {
             'btn-light-primary': goal?.order?.order_status === 'awaiting_for_payment',
             'btn-light-success': goal?.order?.order_status === 'completed',

@@ -78,7 +78,7 @@ const AppUserTable = (props: any) => {
         <thead>
           <tr className='fw-bold text-muted bg-light'>
             <th className='pointer ps-4 rounded-start' onClick={() => handleSort('first_name')}>
-              Støttespiller
+              NAVN
               {sortBy === 'first_name' && (
                 <>
                   {order === 'ASC' ? (
@@ -91,12 +91,12 @@ const AppUserTable = (props: any) => {
               {sortBy !== 'first_name' && <FaSort className='ms-2' />}
             </th>
 
-            <th className='pointer'>Oppstart dato</th>
+            <th className='pointer'> ROLLE</th>
 
             <th className=''>Kontakt</th>
 
             <th className='pointer' onClick={() => handleSort('created_at')}>
-              HmHy mottatt
+              OPPRETTET
               {sortBy === 'DESC' && (
                 <>
                   {order === 'ASC' ? (
@@ -119,7 +119,7 @@ const AppUserTable = (props: any) => {
               <td>
                 <div className='d-flex align-items-center'>
                   <div className='symbol symbol-50px me-5'>
-                    <Link to={`/user-mangement/user-overview/update-user/${support?._id}`}>
+                    <Link to={`/home/app-users/${support?._id}`}>
                       <div className='symbol symbol-50px me-5' style={{ backgroundColor: 'white' }}>
                         {support?.image ? (
                           <img
@@ -140,7 +140,7 @@ const AppUserTable = (props: any) => {
                   </div>
                   <div className='d-flex flex-column'>
                     <Link
-                      to={`/user-mangement/user-overview/update-user/${support?._id}`}
+                      to={`/home/app-users/${support?._id}`}
                       className='text-gray-800 text-hover-primary mb-1'
                     >
                       {support?.first_name} {support?.last_name}
@@ -166,7 +166,7 @@ const AppUserTable = (props: any) => {
               <td className='text-end '>
                 <div className='d-flex flex-shrink-0 justify-content-end'>
                   <Link
-                    to={`/user-mangement/user-overview/update-user/`}
+                    to={`/home/app-users/${support?._id}`}
                     className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 min-w-auto'
                   >
                     <i className='fa-duotone fa-pencil' />

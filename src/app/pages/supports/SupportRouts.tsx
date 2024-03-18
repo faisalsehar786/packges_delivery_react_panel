@@ -4,6 +4,8 @@ import OversiktMain from './oversikt/OversiktMain'
 import TenderMain from './Tenders/TenderMain'
 import ActiveTenderMain from './ActiveTenders/ActiveTenderMain'
 import AppUserMain from './appusers/AppUserMain'
+import { AppUserEdit } from './appusers/AppUserEdit'
+import TenderSinglePage from './Tenders/TenderSinglePage'
 // eslint-disable-next-line import/no-named-default
 
 const userMangementBreadCrumbs: Array<PageLink> = [
@@ -47,33 +49,11 @@ const SupportRouts = () => (
         element={
           <>
             <PageTitle breadcrumbs={userMangementBreadCrumbs}>Formål detaljer</PageTitle>
+            <TenderSinglePage />
           </>
         }
       />
-      <Route
-        path='published_jobEdit/:id'
-        element={
-          <>
-            <PageTitle breadcrumbs={userMangementBreadCrumbs}>Opprett nytt formål</PageTitle>
-          </>
-        }
-      />
-      <Route
-        path='activedeliveryEdit/:id'
-        element={
-          <>
-            <PageTitle breadcrumbs={userMangementBreadCrumbs}>Org. detaljer</PageTitle>
-          </>
-        }
-      />
-      <Route
-        path='activedeliverySingle/:id'
-        element={
-          <>
-            <PageTitle breadcrumbs={userMangementBreadCrumbs}>Org. detaljer</PageTitle>
-          </>
-        }
-      />
+
       <Route
         path='activedeliveries'
         element={
@@ -83,20 +63,23 @@ const SupportRouts = () => (
           </>
         }
       />
-      <Route
-        path='stottespillereSingle/:id'
-        element={
-          <>
-            <PageTitle breadcrumbs={userMangementBreadCrumbs}>Oversitk organisasjoner</PageTitle>
-          </>
-        }
-      />
+
       <Route
         path='app-users'
         element={
           <>
             <PageTitle breadcrumbs={userMangementBreadCrumbs}>App Users</PageTitle>
             <AppUserMain />
+          </>
+        }
+      />
+
+      <Route
+        path='app-users/:id'
+        element={
+          <>
+            <PageTitle breadcrumbs={userMangementBreadCrumbs}>App Users</PageTitle>
+            <AppUserEdit />
           </>
         }
       />

@@ -190,6 +190,27 @@ export const handlePatchRequest =
     }
   }
 
+export const handlePatchRequestWithOutAlerts =
+  (url: string, data: any, options = {}) =>
+  async (setLoading: any) => {
+    setLoading(true)
+    const fetchUrl = `${process.env.REACT_APP_BACKEND_API_URL}${url}`
+
+    try {
+      const response = await axios.patch(fetchUrl, data, options)
+      // toast.success(response.data.message || 'Updated successfully', { autoClose: 20000 })
+      return response.data
+    } catch (error: any) {
+      if (error.response.status === 401) return handleRefreshToken()
+      // toast.error(error.response.data.message || 'Noe gikk galt. Vennligst prøv igjen.', {
+      //   autoClose: 20000,
+      // })
+      return error
+    } finally {
+      setLoading(false)
+    }
+  }
+
 export const handleRefreshToken = async () => {
   const refreshToken = getRefreshToken()
   const refreshURL = `${process.env.REACT_APP_BACKEND_API_URL}${GET_USER_BY_ACCESSTOKEN_URL}`

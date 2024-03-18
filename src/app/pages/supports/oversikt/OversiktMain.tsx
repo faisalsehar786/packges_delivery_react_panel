@@ -54,8 +54,8 @@ export default function OversiktMain() {
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall sluttbrukere'
-          // description='Fra alle støttespillere'
+          title='Total App User'
+          // description='Fra alle customer'
           numbertext={statsApp?.total}
         />
 
@@ -63,7 +63,7 @@ export default function OversiktMain() {
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall sjåfører'
+          title='Total Driver'
           // description='Til alle organisasjoner'
           numbertext={statsApp?.user_type_driver_count}
         />
@@ -72,37 +72,28 @@ export default function OversiktMain() {
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall leveringer'
-          // description='Til HmHy'
-          numbertext={stats?.total}
+          title='Total Customer'
+          // description='Fra alle customer'
+          numbertext={statsApp?.user_type_customer_count}
         />
-
         <MixedWidget13
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall aktive leveranser'
+          title='Total Jobs'
           // description='Til HmHy'
-          numbertext={stats?.order_processing}
+          numbertext={stats?.total}
         />
       </div>
 
       <div className='row overview gap-2 mt-4'>
         {/* First row */}
-        <MixedWidget13
-          className='card-xl-stretch  card_borderC col'
-          backGroundColor='#ffff'
-          chartHeight='60px'
-          title='Antall sluttbrukere'
-          // description='Fra alle støttespillere'
-          numbertext={statsApp?.user_type_customer_count}
-        />
 
         <MixedWidget13
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall sjåfører'
+          title='Jobs Payments Done'
           // description='Til alle organisasjoner'
           numbertext={stats?.order_payment_done}
         />
@@ -111,16 +102,23 @@ export default function OversiktMain() {
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall leveringer'
+          title='Jobs awaiting for payment '
           // description='Til HmHy'
           numbertext={stats?.order_awaiting_for_payment}
         />
-
         <MixedWidget13
           className='card-xl-stretch  card_borderC col'
           backGroundColor='#ffff'
           chartHeight='60px'
-          title='Antall aktive leveranser'
+          title='Jobs on processing'
+          // description='Til HmHy'
+          numbertext={stats?.order_processing}
+        />
+        <MixedWidget13
+          className='card-xl-stretch  card_borderC col'
+          backGroundColor='#ffff'
+          chartHeight='60px'
+          title='Jobs Completed'
           // description='Til HmHy'
           numbertext={stats?.order_completed}
         />
