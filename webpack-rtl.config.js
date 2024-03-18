@@ -13,7 +13,7 @@ const RtlCssPlugin = require('rtlcss-webpack-plugin')
 
 // global variables
 const rootPath = path.resolve(__dirname)
-const distPath = `${rootPath}/src/_metronic/assets`
+const distPath = rootPath + '/src/_metronic/assets'
 
 const entries = {
   'css/style': './src/_metronic/assets/sass/style.scss',
@@ -21,7 +21,7 @@ const entries = {
 
 // remove older folders and files
 ;(async () => {
-  await del.sync(`${distPath}/css`, { force: true })
+  await del.sync(distPath + '/css', {force: true})
 })()
 
 function mainConfig() {
@@ -56,7 +56,7 @@ function mainConfig() {
           // hook name
           compiler.hooks.afterEmit.tap('AfterEmitPlugin', () => {
             ;(async () => {
-              await del.sync(`${distPath}/css/*.js`, { force: true })
+              await del.sync(distPath + '/css/*.js', {force: true})
             })()
           })
         },
@@ -82,6 +82,6 @@ function mainConfig() {
   }
 }
 
-module.exports = () => {
+module.exports = function () {
   return [mainConfig()]
 }
