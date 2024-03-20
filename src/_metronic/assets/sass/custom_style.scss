@@ -11,7 +11,7 @@
 }
 
 .logo-bottom-boarder {
-  border-bottom: 1px solid #c6e0ec;
+  border-bottom: 1px solid #8bc34a8c;
 }
 
 .aside-fixed .aside {
@@ -38,15 +38,15 @@
 }
 
 .menue-drawrCustom {
-  border-right: 1px solid #c6e0ec;
+  border-right: 1px solid #8bc34a8c;
 }
 
 .aside {
-  border-right: 1px solid #c6e0ec;
+  border-right: 1px solid #8bc34a8c;
 }
 
 .header-fixed .header {
-  border-bottom: 1px solid #c6e0ec;
+  border-bottom: 1px solid #8bc34a8c;
 }
 
 .fsatollenav {
@@ -295,7 +295,7 @@
 .createTicket {
   position: relative;
   top: calc(44% - 16px / 2);
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
@@ -374,7 +374,14 @@ body .active {
 
 body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
 .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon .svg-icon,
-.menu-state-icon-primary div .menu-item .menu-link.active .menu-icon i .svg-icon svg {
+.menu-state-icon-primary
+  div
+  .menu-item
+  .menu-link.active
+  .menu-icon
+  i
+  .svg-icon
+  svg {
   fill: #96bd2c !important;
   color: #96bd2c !important;
 }
@@ -385,7 +392,10 @@ body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
 }
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link,
-.menu-sub:not([data-popper-placement]) > .menu-inner > .menu-item > .menu-content,
+.menu-sub:not([data-popper-placement])
+  > .menu-inner
+  > .menu-item
+  > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-inner > .menu-item > .menu-link {
   padding-left: 0px;
   margin-left: -3px;
@@ -458,7 +468,7 @@ body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
 }
 
 .card {
-  border: 1px solid #c6e0ec;
+  border: 1px solid #8bc34a8c;
 }
 
 .pagination-container {
@@ -505,7 +515,7 @@ body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
       &::before {
         position: relative;
         /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
-        content: '';
+        content: "";
         /* By using an em scale, the arrows will size with the font */
         display: inline-block;
         width: 0.4em;
@@ -544,7 +554,7 @@ thead {
   text-transform: uppercase !important;
 
   th {
-    background-color: #e9f4ff !important;
+    background-color: rgb(150, 189, 44) !important;
     color: #1b3554 !important;
     font-weight: 600 !important;
   }
@@ -636,7 +646,7 @@ a:not(.btn) {
   height: 50px;
   width: 50px;
   background: #ffffff;
-  border: 1px solid #c6e0ec;
+  border: 1px solid #8bc34a8c;
   border-radius: 8px;
   object-fit: contain;
   display: flex;
@@ -702,7 +712,7 @@ a:not(.btn) {
 }
 
 .card {
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
   border-radius: 8px !important;
 }
 
@@ -762,7 +772,7 @@ a:not(.btn) {
 
 .form-control.form-control-lg {
   border-radius: 8px !important;
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
 
   // not text area
   &:not(textarea) {
@@ -780,7 +790,7 @@ select.form-select {
   font-size: 0.95rem !important;
   border-radius: 8px !important;
   height: 46px !important;
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
 }
 
 textarea.form-control-lg {
@@ -790,7 +800,7 @@ textarea.form-control-lg {
 .form-control.form-control-solid {
   border-radius: 8px !important;
   height: 46px !important;
-  border-color: #c6e0ec !important;
+  border-color: #8bc34a8c !important;
 }
 
 i {
@@ -828,7 +838,7 @@ i {
 
 .card_borderC {
   border-radius: 8px !important;
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
 }
 
 .fontsizechfslogtime .ck-editor .ck-editor__main .ck-editor__editable {
@@ -873,7 +883,7 @@ i {
   line-height: 40px !important;
   padding: 13px 23px !important;
   border-radius: 8px !important;
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
   font-size: 14px !important;
 }
 
@@ -889,7 +899,7 @@ i {
 }
 
 .ck-editor__editable_inline {
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
   border-radius: 8px !important;
 }
 
@@ -1097,7 +1107,7 @@ textarea {
       color: #96bd2c;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         right: 12px;
@@ -1138,7 +1148,7 @@ textarea {
 
     .date-area {
       align-items: center;
-      border: 2px solid #f1f2fa;
+      border: 2px solid #8bc34a8c;
       border-radius: 10px;
       color: #96bd2c;
       display: flex;
@@ -1280,7 +1290,7 @@ textarea {
       color: #96bd2c;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         right: 12px;
@@ -1437,7 +1447,7 @@ textarea {
   color: #96bd2c;
 }
 .border {
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
 }
 i.bi {
   color: #96bd2c;
@@ -1462,7 +1472,7 @@ i.bi {
 .slett:hover:not(.btn-active),
 .slett:active:not(.btn-active) {
   border-radius: 8px !important;
-  border: 1px solid #c6e0ec !important;
+  border: 1px solid #8bc34a8c !important;
   background-color: #fff !important;
   color: #f1416c !important;
 }
@@ -1594,12 +1604,12 @@ body .textareapushnoti {
   transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.controls:hover input[type='range']::-webkit-slider-thumb {
+.controls:hover input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px 8px rgba(63, 81, 181, 0.16);
   border-radius: 50%;
 }
 
-.controls:hover input[type='range']::-moz-range-thumb {
+.controls:hover input[type="range"]::-moz-range-thumb {
   box-shadow: 0px 0px 0px 8px rgba(63, 81, 181, 0.16);
 }
 
@@ -1613,4 +1623,8 @@ body > hmr-error-overlay {
 
 .menu-state-icon-primary .menu-item .menu-link.active .menu-icon i {
   color: #042c33;
+}
+
+.css-1p4u16k-control {
+  border-color: #8bc34a8c !important;
 }

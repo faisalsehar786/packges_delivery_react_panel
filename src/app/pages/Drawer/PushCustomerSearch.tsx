@@ -1,73 +1,76 @@
-import { useEffect, useState } from 'react'
-import { AsyncPaginate } from 'react-select-async-paginate'
-import { handleGetRequest } from '../../services'
+import { useEffect, useState } from "react";
+import { AsyncPaginate } from "react-select-async-paginate";
+import { handleGetRequest } from "../../services";
 
 type OptionType = {
-  value: number | null
-  label: string
-}
+  value: number | null;
+  label: string;
+};
 
-const PushStottespillereSearch = (props: any) => {
-  const { pushTokenProp } = props
-  const [value, onChange] = useState<OptionType | null>()
-  let hasMore = true
-  let searchTerm = ''
-  let currentPage = 0
+const PushCustomerSearch = (props: any) => {
+  const { pushTokenProp } = props;
+  const [value, onChange] = useState<OptionType | null>();
+  let hasMore = true;
+  let searchTerm = "";
+  let currentPage = 0;
 
   const loadOptions = async (search: string) => {
-    let players = []
+    let players = [];
 
     if (search === searchTerm) {
-      currentPage += 1
+      currentPage += 1;
     } else {
-      currentPage = 1
-      searchTerm = search
-      hasMore = true
+      currentPage = 1;
+      searchTerm = search;
+      hasMore = true;
     }
 
     if (search && hasMore) {
-      const pageNo = currentPage
-      const pageSize = 100
+      const pageNo = currentPage;
+      const pageSize = 100;
 
       try {
-        const { data, pagination }: any = await handleGetRequest(`/user/search`, {
-          params: {
-            search,
-            page: pageNo,
-            limit: pageSize,
-          },
-        })(() => {})
+        const { data, pagination }: any = await handleGetRequest(
+          `/user/search`,
+          {
+            params: {
+              search,
+              page: pageNo,
+              limit: pageSize,
+            },
+          }
+        )(() => {});
 
         players = data.map((player: any) => {
           return {
             value: player?.push_token,
             label: `${player?.first_name} ${player?.last_name} - +${player?.mobile_number}`,
-          }
-        })
+          };
+        });
 
-        const { page, pages } = pagination
+        const { page, pages } = pagination;
 
-        hasMore = page < pages
+        hasMore = page < pages;
       } catch (error) {
-        currentPage = 0
-        searchTerm = ''
+        currentPage = 0;
+        searchTerm = "";
       }
     } else {
-      currentPage = 0
-      searchTerm = ''
+      currentPage = 0;
+      searchTerm = "";
     }
 
     return {
       options: [...players],
       hasMore,
-    }
-  }
+    };
+  };
 
   useEffect(() => {
     if (value) {
-      pushTokenProp(value.value)
+      pushTokenProp(value.value);
     }
-  }, [value])
+  }, [value]);
 
   return (
     <AsyncPaginate
@@ -78,8 +81,8 @@ const PushStottespillereSearch = (props: any) => {
       components={{
         DropdownIndicator: null,
       }}
-      placeholder='Søk customer...'
-      className='w-100'
+      placeholder="Søk customer..."
+      className="w-100"
       styles={{
         control: (provided) => ({
           ...provided,
@@ -103,17 +106,17 @@ const PushStottespillereSearch = (props: any) => {
           // font-size: 14px;
           // height: 40px;
           // padding: 10px 15px;
-
-          borderColor: '#c6e0ec',
-          borderRadius: '8px',
-          color: '#5d6d7e',
-          fontSize: '14px',
-          height: '46px',
+          boxShadow: "inset 0 1px 1px rgba(0,0,0,.075)",
+          border: "1px solid #c6e0ec",
+          borderRadius: "8px",
+          color: "#5d6d7e",
+          fontSize: "14px",
+          height: "46px",
         }),
       }}
-      noOptionsMessage={() => (searchTerm ? 'Ingen resultater' : null)}
+      noOptionsMessage={() => (searchTerm ? "Ingen resultater" : null)}
     />
-  )
-}
+  );
+};
 
-export default PushStottespillereSearch
+export default PushCustomerSearch;
