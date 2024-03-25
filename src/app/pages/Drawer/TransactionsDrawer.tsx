@@ -168,7 +168,7 @@ const TransactionsDrawer: FC<IProps> = ({ selectedGoal, selectedUser }) => {
                       </div>
                       <div className="desc">
                         <div className=" d-flex flex-column justify-content-center">
-                          <h5 className="mb-0">Din støtte:</h5>
+                          <h5 className="mb-0">Din HYHM:</h5>
                           <span>Gitt hittil via Vipps</span>
                         </div>
                       </div>
@@ -305,7 +305,7 @@ const TransactionsDrawer: FC<IProps> = ({ selectedGoal, selectedUser }) => {
                             ? item?.goal_title.substring(0, 23) + '...'
                             : item?.goal_title} */}
 
-                          {`Støttebeløp: ${
+                          {`HYHMbeløp: ${
                             item?.transactions_list?.length > 0
                               ? item?.transactions_list[0]?.support_amount
                               : 0
@@ -348,7 +348,7 @@ const TransactionsDrawer: FC<IProps> = ({ selectedGoal, selectedUser }) => {
                             <h5 className='mb-0'>
                               {transaction?.no_of_transactions} transaksjoner
                             </h5>
-                            <span>Støttebelop: {transaction?.support_amount} kr</span>
+                            <span>HYHMbelop: {transaction?.support_amount} kr</span>
                           </div>
                         </div>
                       </div>
