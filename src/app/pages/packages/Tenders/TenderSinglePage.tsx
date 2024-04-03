@@ -3,13 +3,18 @@ import { useContext, useEffect, useState } from "react";
 import BreadcrumbsContext from "../../../../_metronic/layout/core/Breadcrumbs";
 import LoadingContext from "../../../../_metronic/layout/core/Loading";
 import { useParams, useNavigate } from "react-router-dom";
-import { handleGetRequest } from "../../../services";
+import {
+  handleDeleteRequest,
+  handleGetRequest,
+  handlePatchRequest,
+} from "../../../services";
 import Tenderdetails1 from "./Tenderdetails1";
 import Gallery from "./Gallery";
 import TenderEditFrom from "./TenderEditFrom";
 import Customerdetails from "./Customerdetails";
 import TenderVariations from "./TenderVariations";
 import PaymentRecordTable from "./PaymentRecordTable";
+import { Modal } from "react-bootstrap";
 
 export default function TenderSinglePage() {
   const { setLoading } = useContext(LoadingContext);
@@ -18,6 +23,42 @@ export default function TenderSinglePage() {
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const navigation = useNavigate();
 
+  const [showModalConfirm, setShowModalConfirm] = useState<boolean>(false);
+  const [showModalConfirmComp, setShowModalConfirmComp] =
+    useState<boolean>(false);
+  const [showModalConfirmCanc, setShowModalConfirmCanc] =
+    useState<boolean>(false);
+  const handleDelete = async () => {
+    setShowModalConfirm(false);
+    const { data } = await handleDeleteRequest(`/tender/delete_tender/${id}`)(
+      setLoading
+    );
+    if (data) {
+      navigation(-1);
+    }
+  };
+
+  const handleCompleted = async () => {
+    setShowModalConfirm(false);
+    const { data } = await handlePatchRequest(
+      `/order/complete_order_by_order_no/${fetchData?.order?.order_no}`,
+      {}
+    )(setLoading);
+    if (data) {
+      navigation(-1);
+    }
+  };
+
+  const handleCancel = async () => {
+    setShowModalConfirm(false);
+    const { data } = await handlePatchRequest(
+      `/order/cancel_order_by_order_no/${fetchData?.order?.order_no}`,
+      {}
+    )(setLoading);
+    if (data) {
+      navigation(-1);
+    }
+  };
   const getOrgDetails = async () => {
     const { data } = await handleGetRequest(`/tender/details/${id}`)(
       setLoading
@@ -66,15 +107,43 @@ export default function TenderSinglePage() {
       <div className="d-flex flex-wrap flex-stack mb-6">
         <h3 className="fw-bolder my-2">Nøkkeltall</h3>
 
-        <div className="d-flex flex-wrap my-2">
-          <div className="me-4">
+        <div className="d-flex flex-wrap ">
+          <div className="">
             <button
               type="button"
-              className="btn btn-primary btn-sm"
-              onClick={() => navigation("/home/published_jobs")}
+              className="btn btn-primary btn-sm me-2"
+              onClick={() => navigation(-1)}
             >
               Go Back
             </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-sm me-2"
+              onClick={() => setShowModalConfirm(true)}
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-sm me-2"
+              onClick={() => setShowModalConfirmCanc(true)}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-sm me-2"
+              onClick={() => setShowModalConfirmComp(true)}
+            >
+              Complete
+            </button>
+            {/* <button
+              type="button"
+              className="btn btn-primary btn-sm"
+              onClick={() => setShowModalConfirm(true)}
+            >
+              Edit
+            </button> */}
           </div>
         </div>
       </div>
@@ -113,6 +182,121 @@ export default function TenderSinglePage() {
             />
           </div>
         </div>
+        <Modal
+          show={showModalConfirm}
+          onHide={() => setShowModalConfirm(false)}
+          size="lg"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h5 className="modal-title">Vil du slette ?</h5>
+            </Modal.Title>
+          </Modal.Header>
+          <div className="modal-body">
+            Er du sikkert på at du vil slette brukeren? Denne handlingen kan
+            ikke angres
+            <br />
+            <br />
+            <br />
+            <button
+              type="button"
+              style={{ float: "right" }}
+              onClick={() => {
+                handleDelete();
+              }}
+              className="btn btn-primary"
+            >
+              Ja, slett
+            </button>
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={() => {
+                setShowModalConfirm(false);
+              }}
+            >
+              Avbryt
+            </button>
+          </div>
+        </Modal>
+        <Modal
+          show={showModalConfirmCanc}
+          onHide={() => setShowModalConfirmCanc(false)}
+          size="lg"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h5 className="modal-title">Vil du slette ?</h5>
+            </Modal.Title>
+          </Modal.Header>
+          <div className="modal-body">
+            Er du sikkert på at du vil slette brukeren? Denne handlingen kan
+            ikke angres
+            <br />
+            <br />
+            <br />
+            <button
+              type="button"
+              style={{ float: "right" }}
+              onClick={() => {
+                handleCancel();
+              }}
+              className="btn btn-primary"
+            >
+              Ja, slett
+            </button>
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={() => {
+                setShowModalConfirmCanc(false);
+              }}
+            >
+              Avbryt
+            </button>
+          </div>
+        </Modal>
+
+        <Modal
+          show={showModalConfirmComp}
+          onHide={() => setShowModalConfirmComp(false)}
+          size="lg"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h5 className="modal-title">Vil du slette ?</h5>
+            </Modal.Title>
+          </Modal.Header>
+          <div className="modal-body">
+            Er du sikkert på at du vil slette brukeren? Denne handlingen kan
+            ikke angres
+            <br />
+            <br />
+            <br />
+            <button
+              type="button"
+              style={{ float: "right" }}
+              onClick={() => {
+                handleCompleted();
+              }}
+              className="btn btn-primary"
+            >
+              Ja, slett
+            </button>
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={() => {
+                setShowModalConfirmComp(false);
+              }}
+            >
+              Avbryt
+            </button>
+          </div>
+        </Modal>
       </>
     </>
   );

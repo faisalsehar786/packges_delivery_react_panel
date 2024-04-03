@@ -6,6 +6,7 @@ import ActiveTenderMain from "./ActiveTenders/ActiveTenderMain";
 import AppUserMain from "./appusers/AppUserMain";
 import { AppUserEdit } from "./appusers/AppUserEdit";
 import TenderSinglePage from "./Tenders/TenderSinglePage";
+import { CreateAppUser } from "./appusers/CreateAppUser";
 // eslint-disable-next-line import/no-named-default
 
 const userMangementBreadCrumbs: Array<PageLink> = [
@@ -90,6 +91,17 @@ const PackageRouts = () => (
               App Users
             </PageTitle>
             <AppUserEdit />
+          </>
+        }
+      />
+      <Route
+        path="app-users/create"
+        element={
+          <>
+            <PageTitle breadcrumbs={userMangementBreadCrumbs}>
+              App Users
+            </PageTitle>
+            <CreateAppUser />
           </>
         }
       />

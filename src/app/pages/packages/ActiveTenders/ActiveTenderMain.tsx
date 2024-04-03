@@ -8,7 +8,7 @@ import ActiveTenderSearch from "./ActiveTenderSearch";
 export default function ActiveTenderMain() {
   const [stats, setStats] = useState<any>();
   const { setLoading } = useContext(LoadingContext);
-  const [status, setstatus] = useState<any>("processing");
+  const [status, setstatus] = useState<any>("accepted");
   const [search] = useState("");
   const getStats = async () => {
     const { data } = await handleGetRequest("/admin/get_admin_stats")(
@@ -17,15 +17,15 @@ export default function ActiveTenderMain() {
     setStats(data);
   };
   const statusData = [
-    { label: "All", val: "all" },
-    { label: "Accepted", val: "accepted" },
-    { label: "Published", val: "Published" },
-    { label: "Payment done", val: "payment_done" },
-    { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    { label: "Processing", val: "processing" },
+    // { label: "All", val: "all" },
+    { label: "Active", val: "accepted" },
+    // { label: "Published", val: "Published" },
+    // { label: "Payment done", val: "payment_done" },
+    // { label: "Awaiting for payment", val: "awaiting_for_payment" },
+    // { label: "Processing", val: "processing" },
     // { label: 'On the Way', val: 'on_the_way' },
-    { label: "Completed", val: "completed" },
-    { label: "Cancel", val: "cancel" },
+    // { label: "Completed", val: "completed" },
+    // { label: "Cancel", val: "cancel" },
   ];
   useEffect(() => {
     getStats();
