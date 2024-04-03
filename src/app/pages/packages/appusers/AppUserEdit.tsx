@@ -32,6 +32,7 @@ export const initialValues = {
   shipments_tracking: false,
   password: "",
   confirm_password: "",
+  current_location: {},
 };
 const profileDetailsSchema = Yup.object().shape({
   first_name: Yup.string().required("First name is required"),
@@ -151,6 +152,7 @@ const AppUserEdit: React.FC = () => {
       loc_tracking: data?.loc_tracking,
       radius_in_km: data?.radius_in_km,
       shipments_tracking: data?.shipments_tracking,
+
       rating: data?.rating,
       password: "************",
       confirm_password: "************",
@@ -471,6 +473,15 @@ const AppUserEdit: React.FC = () => {
                     className="form-control form-control-lg form-control-solid"
                     placeholder="Current Location"
                     value={data?.current_location?.address}
+                  />
+
+                  <iframe
+                    src={`https://maps.google.com/maps?q=${data?.current_location?.coordinates
+                      ?.reverse()
+                      .toString()}&z=15&output=embed`}
+                    width={360}
+                    height={270}
+                    style={{ border: 0, marginTop: 10 }}
                   />
                 </div>
               </div>
