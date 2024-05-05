@@ -1,9 +1,9 @@
 .authbgcolor {
-  background: #96bd2c !important;
+  background: #825ef6 !important;
 }
 
 .authtext {
-  color: #96bd2c !important;
+  color: #825ef6 !important;
 }
 
 .bg-ch-header {
@@ -11,7 +11,7 @@
 }
 
 .logo-bottom-boarder {
-  border-bottom: 1px solid #8bc34a8c;
+  border-bottom: 1px solid #825ef682;
 }
 
 .aside-fixed .aside {
@@ -38,15 +38,15 @@
 }
 
 .menue-drawrCustom {
-  border-right: 1px solid #8bc34a8c;
+  border-right: 1px solid #825ef682;
 }
 
 .aside {
-  border-right: 1px solid #8bc34a8c;
+  border-right: 1px solid #825ef682;
 }
 
 .header-fixed .header {
-  border-bottom: 1px solid #8bc34a8c;
+  border-bottom: 1px solid #825ef682;
 }
 
 .fsatollenav {
@@ -334,7 +334,7 @@
   background-color: #042c33 !important;
 }
 .menu-state-bullet-primary .menu-item .menu-link.active.haveparent {
-  border-right: 2px solid #96bd2c;
+  border-right: 2px solid #825ef6;
 
   // hover
   &:hover {
@@ -368,7 +368,7 @@
 body .active {
   .aside .menu > div .menu-item > .menu-link .menu-icon i,
   .aside .menu > div .menu-item > .menu-link .menu-icon .svg-icon {
-    color: #96bd2c !important;
+    color: #825ef6 !important;
   }
 }
 
@@ -382,8 +382,8 @@ body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
   i
   .svg-icon
   svg {
-  fill: #96bd2c !important;
-  color: #96bd2c !important;
+  fill: #825ef6 !important;
+  color: #825ef6 !important;
 }
 
 .menu-item .menu-link .menu-icon .svg-icon {
@@ -468,7 +468,7 @@ body .menu-state-icon-primary div .menu-item .menu-link.active .menu-icon,
 }
 
 .card {
-  border: 1px solid #8bc34a8c;
+  border: 1px solid #825ef682;
 }
 
 .pagination-container {
@@ -554,7 +554,7 @@ thead {
   text-transform: uppercase !important;
 
   th {
-    background-color: rgb(150, 189, 44) !important;
+    background-color: rgb(130 94 246 / 42%) !important;
     color: #1b3554 !important;
     font-weight: 600 !important;
   }
@@ -646,7 +646,7 @@ a:not(.btn) {
   height: 50px;
   width: 50px;
   background: #ffffff;
-  border: 1px solid #8bc34a8c;
+  border: 1px solid #825ef682;
   border-radius: 8px;
   object-fit: contain;
   display: flex;
@@ -712,7 +712,7 @@ a:not(.btn) {
 }
 
 .card {
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
   border-radius: 8px !important;
 }
 
@@ -721,12 +721,12 @@ a:not(.btn) {
 }
 
 .color-primary {
-  color: #96bd2c !important;
+  color: #825ef6 !important;
 }
 
 .btn-primary,
 .btn-info {
-  background: #96bd2c !important;
+  background: #825ef6 !important;
   height: 46px !important;
   border-radius: 8px !important;
 }
@@ -772,7 +772,7 @@ a:not(.btn) {
 
 .form-control.form-control-lg {
   border-radius: 8px !important;
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
 
   // not text area
   &:not(textarea) {
@@ -790,7 +790,7 @@ select.form-select {
   font-size: 0.95rem !important;
   border-radius: 8px !important;
   height: 46px !important;
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
 }
 
 textarea.form-control-lg {
@@ -800,7 +800,7 @@ textarea.form-control-lg {
 .form-control.form-control-solid {
   border-radius: 8px !important;
   height: 46px !important;
-  border-color: #8bc34a8c !important;
+  border-color: #825ef682 !important;
 }
 
 i {
@@ -838,7 +838,7 @@ i {
 
 .card_borderC {
   border-radius: 8px !important;
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
 }
 
 .fontsizechfslogtime .ck-editor .ck-editor__main .ck-editor__editable {
@@ -883,7 +883,7 @@ i {
   line-height: 40px !important;
   padding: 13px 23px !important;
   border-radius: 8px !important;
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
   font-size: 14px !important;
 }
 
@@ -899,7 +899,7 @@ i {
 }
 
 .ck-editor__editable_inline {
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
   border-radius: 8px !important;
 }
 
@@ -1104,7 +1104,7 @@ textarea {
 
     select {
       height: 35px !important;
-      color: #96bd2c;
+      color: #825ef6;
 
       &::after {
         content: "";
@@ -1114,8 +1114,8 @@ textarea {
         transform: translateY(-50%);
         border-style: solid;
         border-width: 6px 6px 0 6px;
-        border-color: #96bd2c transparent transparent transparent;
-        color: #96bd2c;
+        border-color: #825ef6 transparent transparent transparent;
+        color: #825ef6;
         /* Set the color of the icon */
       }
     }
@@ -1132,7 +1132,7 @@ textarea {
       margin-left: 10px;
 
       h5 {
-        color: #96bd2c;
+        color: #825ef6;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -1148,9 +1148,9 @@ textarea {
 
     .date-area {
       align-items: center;
-      border: 2px solid #8bc34a8c;
+      border: 2px solid #825ef682;
       border-radius: 10px;
-      color: #96bd2c;
+      color: #825ef6;
       display: flex;
       flex-direction: column;
       height: 50px;
@@ -1167,7 +1167,7 @@ textarea {
       }
     }
     .amount {
-      color: #96bd2c;
+      color: #825ef6;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
@@ -1287,7 +1287,7 @@ textarea {
 
     select {
       height: 35px !important;
-      color: #96bd2c;
+      color: #825ef6;
 
       &::after {
         content: "";
@@ -1297,8 +1297,8 @@ textarea {
         transform: translateY(-50%);
         border-style: solid;
         border-width: 6px 6px 0 6px;
-        border-color: #96bd2c transparent transparent transparent;
-        color: #96bd2c;
+        border-color: #825ef6 transparent transparent transparent;
+        color: #825ef6;
         /* Set the color of the icon */
       }
     }
@@ -1315,7 +1315,7 @@ textarea {
       margin-left: 10px;
 
       h5 {
-        color: #96bd2c;
+        color: #825ef6;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -1333,7 +1333,7 @@ textarea {
       align-items: center;
       border: 2px solid #f1f2fa;
       border-radius: 10px;
-      color: #96bd2c;
+      color: #825ef6;
       display: flex;
       flex-direction: column;
       height: 50px;
@@ -1350,7 +1350,7 @@ textarea {
       }
     }
     .amount {
-      color: #96bd2c;
+      color: #825ef6;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
@@ -1444,13 +1444,13 @@ textarea {
 .far,
 .fas,
 .fat {
-  color: #96bd2c;
+  color: #825ef6;
 }
 .border {
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
 }
 i.bi {
-  color: #96bd2c;
+  color: #825ef6;
 }
 .ck-content a i {
   color: #009ef7 !important;
@@ -1472,7 +1472,7 @@ i.bi {
 .slett:hover:not(.btn-active),
 .slett:active:not(.btn-active) {
   border-radius: 8px !important;
-  border: 1px solid #8bc34a8c !important;
+  border: 1px solid #825ef682 !important;
   background-color: #fff !important;
   color: #f1416c !important;
 }
@@ -1626,5 +1626,5 @@ body > hmr-error-overlay {
 }
 
 .css-1p4u16k-control {
-  border-color: #8bc34a8c !important;
+  border-color: #825ef682 !important;
 }

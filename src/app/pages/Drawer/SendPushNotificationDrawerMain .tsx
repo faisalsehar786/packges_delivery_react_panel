@@ -38,9 +38,10 @@ const SendPushNotificationDrawerMain: FC = () => {
 
       const body = {
         title: values.subject,
-        description: values.message,
-        type: values.noti_type,
+        message: values.message,
+        noti_type: values.noti_type,
         send_to: values.send_to,
+        noti_for: "for_app",
         send_to_array: [pushToken],
       };
 
@@ -175,8 +176,15 @@ const SendPushNotificationDrawerMain: FC = () => {
                               )}
                             >
                               <option value="">Velg varsel type</option>
-                              <option value="consent">consent</option>
-                              <option value="other">other</option>
+                              {[
+                                { label: "Deliveries", val: "tender" },
+                                { label: "Payments", val: "payment" },
+                                { label: "App Support", val: "app_support" },
+                                { label: "Admin", val: "admin" },
+                                { label: "Other", val: "other" },
+                              ].map((item) => (
+                                <option value={item?.val}>{item?.label}</option>
+                              ))}
                             </select>
                           </div>
 

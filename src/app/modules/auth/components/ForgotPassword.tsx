@@ -67,7 +67,7 @@ export function ForgotPassword() {
             src={toAbsoluteUrl("/media/logos/S-logo-full-dark.png")}
             alt="logo"
             className="svg-icon-cufs mb-14"
-            style={{ maxHeight: "50px" }}
+            style={{ maxHeight: "100px" }}
           />
           {/* <h2 className='text-dark mb-14 mx-2'>HYHMapparatet</h2> */}
         </div>

@@ -7,6 +7,7 @@ import AppUserMain from "./appusers/AppUserMain";
 import { AppUserEdit } from "./appusers/AppUserEdit";
 import TenderSinglePage from "./Tenders/TenderSinglePage";
 import { CreateAppUser } from "./appusers/CreateAppUser";
+import NotificationsMain from "./Notifications/NotificationsMain";
 // eslint-disable-next-line import/no-named-default
 
 const userMangementBreadCrumbs: Array<PageLink> = [
@@ -35,6 +36,17 @@ const PackageRouts = () => (
               Oversikt
             </PageTitle>
             <OversiktMain />
+          </>
+        }
+      />
+      <Route
+        path="notifications"
+        element={
+          <>
+            <PageTitle breadcrumbs={userMangementBreadCrumbs}>
+              Notifications
+            </PageTitle>
+            <NotificationsMain />
           </>
         }
       />

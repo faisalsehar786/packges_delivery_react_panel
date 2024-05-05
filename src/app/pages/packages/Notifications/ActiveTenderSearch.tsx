@@ -1,37 +1,38 @@
-import { useEffect, useState } from "react";
-import { AsyncPaginate } from "react-select-async-paginate";
-import { handleGetRequest } from "../../services";
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AsyncPaginate } from 'react-select-async-paginate'
+import { handleGetRequest } from '../../../services'
 
 type OptionType = {
-  value: number | null;
-  label: string;
-};
+  value: number | null
+  label: string
+}
 
-const PushCustomerSearch = (props: any) => {
-  const { pushTokenProp } = props;
-  const [value, onChange] = useState<OptionType | null>();
-  let hasMore = true;
-  let searchTerm = "";
-  let currentPage = 0;
+const ActiveTenderSearch: React.FC = () => {
+  const [value, onChange] = useState<OptionType | null>()
+  let hasMore = true
+  let searchTerm = ''
+  let currentPage = 0
+  const navigate = useNavigate()
 
   const loadOptions = async (search: string) => {
-    let players = [];
+    let goals = []
 
     if (search === searchTerm) {
-      currentPage += 1;
+      currentPage += 1
     } else {
-      currentPage = 1;
-      searchTerm = search;
-      hasMore = true;
+      currentPage = 1
+      searchTerm = search
+      hasMore = true
     }
 
     if (search && hasMore) {
-      const pageNo = currentPage;
-      const pageSize = 100;
+      const pageNo = currentPage
+      const pageSize = 100
 
       try {
         const { data, pagination }: any = await handleGetRequest(
-          `/user/search`,
+          `/tender/admin_get_all?check_cond=true`,
           {
             params: {
               search,
@@ -39,38 +40,38 @@ const PushCustomerSearch = (props: any) => {
               limit: pageSize,
             },
           }
-        )(() => {});
+        )(() => {})
 
-        players = data.map((player: any) => {
+        goals = data.map((goal: any) => {
           return {
-            value: player?._id,
-            label: `${player?.first_name} ${player?.last_name} - +${player?.email}`,
-          };
-        });
+            value: goal?._id,
+            label: `${goal.title} - ${goal?.order?.order_no}`,
+          }
+        })
 
-        const { page, pages } = pagination;
+        const { page, pages } = pagination
 
-        hasMore = page < pages;
+        hasMore = page < pages
       } catch (error) {
-        currentPage = 0;
-        searchTerm = "";
+        currentPage = 0
+        searchTerm = ''
       }
     } else {
-      currentPage = 0;
-      searchTerm = "";
+      currentPage = 0
+      searchTerm = ''
     }
 
     return {
-      options: [...players],
+      options: [...goals],
       hasMore,
-    };
-  };
+    }
+  }
 
   useEffect(() => {
     if (value) {
-      pushTokenProp(value.value);
+      navigate(`/home/published_job/${value.value}`)
     }
-  }, [value]);
+  }, [value])
 
   return (
     <AsyncPaginate
@@ -81,8 +82,8 @@ const PushCustomerSearch = (props: any) => {
       components={{
         DropdownIndicator: null,
       }}
-      placeholder="Søk customer..."
-      className="w-100"
+      placeholder='Søk etter jobber...'
+      className='w-100'
       styles={{
         control: (provided) => ({
           ...provided,
@@ -106,17 +107,17 @@ const PushCustomerSearch = (props: any) => {
           // font-size: 14px;
           // height: 40px;
           // padding: 10px 15px;
-          boxShadow: "inset 0 1px 1px rgba(0,0,0,.075)",
-          border: "1px solid #c6e0ec",
-          borderRadius: "8px",
-          color: "#5d6d7e",
-          fontSize: "14px",
-          height: "46px",
+
+          borderColor: '#c6e0ec',
+          borderRadius: '8px',
+          color: '#5d6d7e',
+          fontSize: '14px',
+          height: '46px',
         }),
       }}
-      noOptionsMessage={() => (searchTerm ? "Ingen resultater" : null)}
+      noOptionsMessage={() => (searchTerm ? 'Ingen resultater' : null)}
     />
-  );
-};
+  )
+}
 
-export default PushCustomerSearch;
+export default ActiveTenderSearch

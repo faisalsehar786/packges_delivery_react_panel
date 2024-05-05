@@ -3,6 +3,7 @@ import { FC, useEffect } from "react";
 import { useIntl } from "react-intl";
 import { PageTitle } from "../../../_metronic/layout/core";
 import OversiktMain from "../packages/oversikt/OversiktMain";
+import { KTSVG } from "../../../_metronic/helpers";
 
 const DashboardPage: FC = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const DashboardPage: FC = () => {
     <>
       {/* <ContentHeader titleMain={`Welcome back ${currentUser?.user?.first_name}`} /> */}
       <OversiktMain />
+
       {/* 
       <DashboardGraphs /> */}
     </>
