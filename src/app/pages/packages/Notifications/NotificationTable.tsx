@@ -54,7 +54,8 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
 
 const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const [page, setPage] = useState(1);
-  const [goals, setGoals] = useState<any>();
+  const [fetchData, setFetchData] = useState<any>();
+  const [limit, setlimit] = useState<any>(10);
   const { setLoading } = useContext(LoadingContext);
 
   const statusCheck = [
@@ -71,7 +72,7 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
   };
 
   useEffect(() => {
-    const getGoals = async () => {
+    const getfetchData = async () => {
       const params = {
         page,
         limit: 10,
@@ -87,20 +88,21 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
 
       try {
         const endpoint = "/notification/get_all";
-        const { data } = await handleGetRequest(endpoint, { params })(
-          setLoading
-        );
+        const resp: { data: any; pagination: any } = await handleGetRequest(
+          endpoint,
+          { params }
+        )(setLoading);
 
         markNotificationsRead();
 
-        setGoals(data);
+        setFetchData(resp);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
       }
     };
 
-    getGoals();
+    getfetchData();
   }, [page, status]);
 
   const markNotificationsRead = async () => {
@@ -115,7 +117,7 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
 
   return (
     <div className="table-responsive scroll-x">
-      {goals?.map((goal: any) => (
+      {fetchData?.data.map((goal: any) => (
         <TableRow
           key={goal?._id}
           goal={goal}
@@ -130,8 +132,12 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
           <CustomPagination
             className="pagination-bar justify-content-md-end"
             currentPage={page}
-            totalCount={goals?.pagination?.totalRecords}
-            pageSize={10}
+            totalCount={
+              fetchData?.pagination?.totalRecords
+                ? fetchData?.pagination?.totalRecords
+                : 0
+            }
+            pageSize={limit}
             onPageChange={(page: any) => setPage(page)}
           />
         </div>

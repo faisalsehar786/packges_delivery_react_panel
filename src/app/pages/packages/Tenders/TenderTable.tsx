@@ -6,8 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomPagination from "../../../../CustomPagination";
 import { numberSpacing, toAbsoluteUrl } from "../../../../_metronic/helpers";
 import LoadingContext from "../../../../_metronic/layout/core/Loading";
-import { handleDeleteRequest, handleGetRequest } from "../../../services";
-import { Modal } from "react-bootstrap";
+import { handleGetRequest } from "../../../services";
 
 const TableRow: React.FC<any> = ({ goal, logo }) => {
   const navigation = useNavigate();
@@ -110,7 +109,8 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
 
 const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const [page, setPage] = useState(1);
-  const [goals, setGoals] = useState<any>();
+  const [fetchData, setFetchData] = useState<any>();
+  const [limit, setlimit] = useState<any>(10);
   const [sortBy, setsortBy] = useState("created_at");
   const [order, setorder] = useState("DESC");
 
@@ -120,7 +120,6 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
     { label: "Payment done", val: "payment_done" },
     { label: "Awaiting for payment", val: "awaiting_for_payment" },
     { label: "Processing", val: "processing" },
-    // {label: 'On the Way', val: 'on_the_way'},
     { label: "Completed", val: "completed" },
     { label: "Cancel", val: "cancel" },
   ];
@@ -147,7 +146,7 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   );
 
   useEffect(() => {
-    const getGoals = async () => {
+    const getfetchData = async () => {
       const params = {
         page,
         search,
@@ -167,19 +166,24 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
 
       try {
         const endpoint = "/tender/admin_get_all?check_cond=true";
-        const { data } = await handleGetRequest(endpoint, { params })(
-          setLoading
-        );
+        const resp: { data: any; pagination: any } = await handleGetRequest(
+          endpoint,
+          {
+            params,
+          }
+        )(setLoading);
 
-        setGoals(data);
+        setFetchData(resp);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
       }
     };
 
-    getGoals();
+    getfetchData();
   }, [page, search, status, sortBy, order, setLoading]);
+
+  console.log(fetchData);
 
   return (
     <div className="table-responsive scroll-x">
@@ -270,7 +274,7 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
           </tr>
         </thead>
         <tbody>
-          {goals?.map((goal: any) => (
+          {fetchData?.data?.map((goal: any) => (
             <TableRow
               key={goal?._id}
               goal={goal}
@@ -287,8 +291,12 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
           <CustomPagination
             className="pagination-bar justify-content-md-end"
             currentPage={page}
-            totalCount={goals?.pagination?.totalRecords ?? 0}
-            pageSize={10}
+            totalCount={
+              fetchData?.pagination?.totalRecords
+                ? fetchData?.pagination?.totalRecords
+                : 0
+            }
+            pageSize={limit}
             onPageChange={(page: any) => setPage(page)}
           />
         </div>
