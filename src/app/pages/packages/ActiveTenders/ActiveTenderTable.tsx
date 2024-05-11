@@ -109,7 +109,8 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
 
 const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const [page, setPage] = useState(1);
-  const [goals, setGoals] = useState<any>();
+  const [fetchData, setFetchData] = useState<any>();
+  const [limit, setlimit] = useState<any>(10);
   const [sortBy, setsortBy] = useState("created_at");
   const [order, setorder] = useState("DESC");
   const { setLoading } = useContext(LoadingContext);
@@ -145,7 +146,7 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   );
 
   useEffect(() => {
-    const getGoals = async () => {
+    const getfetchData = async () => {
       const params = {
         page,
         search,
@@ -162,18 +163,19 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
 
       try {
         const endpoint = "/tender/admin_get_all?check_cond=true";
-        const { data } = await handleGetRequest(endpoint, { params })(
-          setLoading
-        );
+        const resp: { data: any; pagination: any } = await handleGetRequest(
+          endpoint,
+          { params }
+        )(setLoading);
 
-        setGoals(data);
+        setFetchData(resp);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
       }
     };
 
-    getGoals();
+    getfetchData();
   }, [page, search, status, sortBy, order, setLoading]);
 
   return (
@@ -265,7 +267,7 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
           </tr>
         </thead>
         <tbody>
-          {goals?.map((goal: any) => (
+          {fetchData?.data?.map((goal: any) => (
             <TableRow
               key={goal?._id}
               goal={goal}
@@ -282,8 +284,12 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
           <CustomPagination
             className="pagination-bar justify-content-md-end"
             currentPage={page}
-            totalCount={goals?.pagination?.totalRecords ?? 0}
-            pageSize={10}
+            totalCount={
+              fetchData?.pagination?.totalRecords
+                ? fetchData?.pagination?.totalRecords
+                : 0
+            }
+            pageSize={limit}
             onPageChange={(page: any) => setPage(page)}
           />
         </div>
