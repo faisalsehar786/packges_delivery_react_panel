@@ -162,7 +162,10 @@ const Topbar: FC = () => {
             }}
           >
             <i className="fa-duotone fa-bell fs-2"></i>
-            <span className="bullet bullet-dot bg-danger h-10px w-10px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+            <span
+              className="bullet bullet-dot bg-danger h-10px w-10px position-absolute translate-middle start-50 "
+              style={{ top: 5 }}
+            ></span>
           </div>
           {/* end::Drawer toggle */}
         </div>
