@@ -82,7 +82,7 @@ const AppUserSearch: React.FC = () => {
       components={{
         DropdownIndicator: null,
       }}
-      placeholder="Søk ..."
+      placeholder="Søk brukere..."
       className="w-100"
       styles={{
         control: (provided) => ({

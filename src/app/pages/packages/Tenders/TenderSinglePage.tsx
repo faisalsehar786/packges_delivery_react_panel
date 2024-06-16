@@ -123,7 +123,7 @@ export default function TenderSinglePage() {
             >
               Delete
             </button>
-            <button
+            {/* <button
               type="button"
               className="btn btn-primary btn-sm me-2"
               onClick={() => setShowModalConfirmCanc(true)}
@@ -136,7 +136,7 @@ export default function TenderSinglePage() {
               onClick={() => setShowModalConfirmComp(true)}
             >
               Complete
-            </button>
+            </button> */}
             {/* <button
               type="button"
               className="btn btn-primary btn-sm"
@@ -149,39 +149,39 @@ export default function TenderSinglePage() {
       </div>
       <>
         <div className="row">
-          <div className="col-xl-6 col-lg-6 ">
-            <Tenderdetails1 fhData={fetchData} title="Job Details" />
+          <div className="col-xl-12 col-lg-12 ">
+            <Tenderdetails1 fhData={fetchData} title="Detaljer" />
           </div>
-
-          <div className="col-xl-6 col-lg-6 ">
+        </div>
+        <div className="row">
+          <div className="col-xl-12 col-lg-12 ">
+            <TenderVariations
+              fhData={fetchData?.tender_variations}
+              title="Dimisjon"
+            />
+          </div>
+          <div className="col-xl-12 col-lg-12 ">
+            <Gallery fhData={fetchData?.files} title="Bilder" />
+          </div>
+          <div className="col-xl-12 col-lg-12 ">
             <Customerdetails
               fhData={fetchData?.customer_id}
-              title="Customer Details"
+              title="Sluttbrukere Detaljer"
             />
             <Customerdetails
               fhData={fetchData?.driver_id}
-              title="Driver Details"
+              title="Sjåfør Detaljer"
             />
           </div>
         </div>
         <div className="row">
           <PaymentRecordTable
-            title="Payment history"
+            title="Betalings historikk"
             id={fetchData?._id}
             order_no={fetchData?.order?.order_no}
           />
         </div>
-        <div className="row">
-          <div className="col-xl-7 col-lg-7 ">
-            <Gallery fhData={fetchData?.files} title="Images" />
-          </div>
-          <div className="col-xl-5 col-lg-5 ">
-            <TenderVariations
-              fhData={fetchData?.tender_variations}
-              title="Dimission"
-            />
-          </div>
-        </div>
+
         <Modal
           show={showModalConfirm}
           onHide={() => setShowModalConfirm(false)}

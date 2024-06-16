@@ -46,15 +46,15 @@ export default function TenderMain() {
   }, []);
 
   const statusData = [
-    { label: "All", val: "all" },
-    { label: "Accepted", val: "accepted" },
-    { label: "Published", val: "Published" },
-    { label: "Payment done", val: "payment_done" },
-    { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    { label: "Processing", val: "processing" },
+    { label: "Alle", val: "all" },
+    { label: "Aksepterte", val: "accepted" },
+    { label: "Publiserte", val: "Publiserte" },
+    { label: "Betalt", val: "payment_done" },
+    { label: "Ikke betalt", val: "awaiting_for_payment" },
+    { label: "Aktive", val: "processing" },
     // { label: 'On the Way', val: 'on_the_way' },
-    { label: "Completed", val: "completed" },
-    { label: "Cancel", val: "cancel" },
+    { label: "Fullførte", val: "completed" },
+    { label: "Kansellerte", val: "cancel" },
   ];
 
   return (
@@ -105,7 +105,7 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Total Jobs"
+              title="Antall sendinger"
               // description='totalt fra alle organisasjoner'
               numbertext={stats?.total}
             />
@@ -116,7 +116,7 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs awaiting for payment"
+              title="Sendinger klare for betaling"
               // description='totalt fra alle organisasjoner'
               numbertext={stats?.order_awaiting_for_payment}
             />
@@ -126,8 +126,8 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs on processing"
-              // description='Jobs on processing'
+              title="Aktive sendinger"
+              // description='Aktive sendinger'
               numbertext={stats?.order_processing}
             />
           </div>
@@ -136,8 +136,8 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs completed"
-              // description='Jobs completed '
+              title="sendinger Fullførte"
+              // description='sendinger Fullførte '
               numbertext={stats?.order_completed}
             />
           </div>
@@ -148,12 +148,13 @@ export default function TenderMain() {
           <div className="card-header border-0 py-5 d-flex align-items-center">
             <h3 className="card-title align-items-start flex-column ">
               <span className="card-label fw-bold fs-3 mb-1">
-                Publiserte jobber
+                {" "}
+                Oversikt sendinger
               </span>
             </h3>
             <div className="d-flex">
               <div className="w-550px">
-                <TenderSearch />
+                <TenderSearch status={status} />
               </div>
               <select
                 className="form-control selectpicker w-250px card_borderC "

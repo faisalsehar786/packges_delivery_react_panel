@@ -96,11 +96,11 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
           })}
         >
           {goal?.order?.order_status === "awaiting_for_payment" &&
-            "awaiting for payment"}
-          {goal?.order?.order_status === "completed" && "completed"}
-          {goal?.order?.order_status === "payment_done" && "payment done"}
+            "Ikke betalt"}
+          {goal?.order?.order_status === "completed" && "Fullførte"}
+          {goal?.order?.order_status === "payment_done" && "Betalte"}
           {goal?.order?.order_status === "cancel" && "Avbrutt"}
-          {goal?.order?.order_status === "processing" && "processing"}
+          {goal?.order?.order_status === "processing" && "Aktive"}
         </span>
       </td>
     </tr>
@@ -117,16 +117,16 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const { setLoading } = useContext(LoadingContext);
 
   const orderStatusCheck = [
-    { label: "Payment done", val: "payment_done" },
-    { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    { label: "Processing", val: "processing" },
-    { label: "Completed", val: "completed" },
-    { label: "Cancel", val: "cancel" },
+    { label: "Betalt", val: "payment_done" },
+    { label: "Ikke betalt", val: "awaiting_for_payment" },
+    { label: "Aktive", val: "processing" },
+    { label: "Fullførte", val: "completed" },
+    { label: "Kansellerte", val: "cancel" },
   ];
 
   const statusCheck = [
-    { label: "accepted", val: "accepted" },
-    { label: "published", val: "Published" },
+    { label: "Aksepterte", val: "accepted" },
+    { label: "published", val: "Publiserte" },
   ];
   const findStatus = (object: any, statusKey: any) => {
     return object?.find((it: any) => it?.val == statusKey);
@@ -182,8 +182,6 @@ const TenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
 
     getfetchData();
   }, [page, search, status, sortBy, order, setLoading]);
-
-  console.log(fetchData);
 
   return (
     <div className="table-responsive scroll-x">

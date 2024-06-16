@@ -197,7 +197,7 @@ const AppUserEdit: React.FC = () => {
   return (
     <>
       <div className="d-flex flex-wrap flex-stack mb-6">
-        <h3 className="fw-bolder my-2">Oppdatere bruker</h3>
+        <h3 className="fw-bolder my-2">Oppdater bruker</h3>
 
         <div className="d-flex flex-wrap my-2">
           <div className="">
@@ -385,7 +385,7 @@ const AppUserEdit: React.FC = () => {
 
               <div className="row mb-6">
                 <label className="col-lg-4 col-form-label fw-bold fs-6">
-                  <span className="">Rating</span>
+                  <span className="">Vurderinger</span>
                 </label>
 
                 <div className="col-lg-8 fv-row">
@@ -444,7 +444,7 @@ const AppUserEdit: React.FC = () => {
                           setDriver(!driver);
                         }}
                       />
-                      <label className="form-check-label ps-2">Driver</label>
+                      <label className="form-check-label ps-2">Sjåfører</label>
                     </div>
                     <div className="form-check form-check-solid mx-3">
                       <input
@@ -455,7 +455,9 @@ const AppUserEdit: React.FC = () => {
                           setCustomer(!customer);
                         }}
                       />
-                      <label className="form-check-label ps-2">Customer</label>
+                      <label className="form-check-label ps-2">
+                        Sluttbrukere
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -463,7 +465,7 @@ const AppUserEdit: React.FC = () => {
 
               <div className="row mb-6">
                 <label className="col-lg-4 col-form-label fw-bold fs-6">
-                  <span className="">Current Location</span>
+                  <span className="">Nåværende lokasjon</span>
                 </label>
 
                 <div className="col-lg-8 fv-row">
@@ -471,7 +473,7 @@ const AppUserEdit: React.FC = () => {
                     disabled
                     type="tel"
                     className="form-control form-control-lg form-control-solid"
-                    placeholder="Current Location"
+                    placeholder="Nåværende lokasjon"
                     value={data?.current_location?.address}
                   />
 
@@ -488,7 +490,7 @@ const AppUserEdit: React.FC = () => {
 
               <div className="row mb-6">
                 <label className="col-lg-4 col-form-label fw-bold fs-6">
-                  <span className="">Range in km</span>
+                  <span className="">Rekkevidde i KM</span>
                 </label>
 
                 <div className="col-lg-8 fv-row">
@@ -504,7 +506,7 @@ const AppUserEdit: React.FC = () => {
 
               <div className="row mb-6">
                 <label className="col-lg-4 col-form-label fw-bold fs-6">
-                  <span className="">Loaction Tracking</span>
+                  <span className="">Sporing lokasjon</span>
                 </label>
 
                 <div className="col-lg-8 fv-row">
@@ -520,7 +522,7 @@ const AppUserEdit: React.FC = () => {
 
               <div className="row mb-6">
                 <label className="col-lg-4 col-form-label fw-bold fs-6">
-                  <span className="">Shipment Tracking</span>
+                  <span className="">Sporing forsendelse</span>
                 </label>
 
                 <div className="col-lg-8 fv-row">
@@ -620,14 +622,14 @@ const AppUserEdit: React.FC = () => {
       <div className="row">
         <div className="col-lg-6">
           <AsCustomerStats
-            title={`As Customer Shipments Stats`}
+            title={`Bruker stats`}
             role={`customer`}
             id={id}
           ></AsCustomerStats>
         </div>
         <div className="col-lg-6">
           <AsDriverStats
-            title={`As Driver Shipments Stats`}
+            title={`Sjåfør stats`}
             role={`driver`}
             id={id}
           ></AsDriverStats>

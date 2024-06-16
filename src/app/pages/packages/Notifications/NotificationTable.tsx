@@ -59,7 +59,7 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const { setLoading } = useContext(LoadingContext);
 
   const statusCheck = [
-    { label: "All", val: "all" },
+    { label: "Alle", val: "all" },
 
     { label: "Deliveries", val: "tender" },
     { label: "Payments", val: "payment" },
