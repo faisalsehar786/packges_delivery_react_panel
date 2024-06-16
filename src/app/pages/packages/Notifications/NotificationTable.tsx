@@ -52,7 +52,13 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
   );
 };
 
-const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
+const NotificationTable: React.FC<any> = ({
+  status,
+  search,
+  hide,
+  logo,
+  refreshDataToggle,
+}) => {
   const [page, setPage] = useState(1);
   const [fetchData, setFetchData] = useState<any>();
   const [limit, setlimit] = useState<any>(10);
@@ -93,8 +99,6 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
           { params }
         )(setLoading);
 
-        markNotificationsRead();
-
         setFetchData(resp);
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -103,17 +107,7 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
     };
 
     getfetchData();
-  }, [page, status]);
-
-  const markNotificationsRead = async () => {
-    try {
-      await handleGetRequest(`/notification/markAsRead?noti_for=admin`)(
-        setLoading
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  }, [page, status, refreshDataToggle]);
 
   return (
     <div className="table-responsive scroll-x">

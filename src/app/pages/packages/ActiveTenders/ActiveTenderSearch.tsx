@@ -10,7 +10,7 @@ type OptionType = {
 
 const ActiveTenderSearch = (props: any) => {
   const { status } = props;
-  console.log(props);
+
   const [value, onChange] = useState<OptionType | null>();
   let hasMore = true;
   let searchTerm = "";
