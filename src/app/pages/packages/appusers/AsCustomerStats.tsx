@@ -78,7 +78,7 @@ export default function AsCustomerStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="cancel
+                title="Kansellert
   "
                 // description='Fra alle customer'
                 numbertext={statsuser?.order_cancel}

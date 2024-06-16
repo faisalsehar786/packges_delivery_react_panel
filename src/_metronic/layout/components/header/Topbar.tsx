@@ -145,8 +145,8 @@ const Topbar: FC = () => {
       <div className={clsx("d-flex align-items-center", itemClass)}>
         <div
           onClick={() => {
-            setrefreshNotification(!refreshNotification);
-            markNotificationsRead();
+            setrefreshNotification(Math.random());
+            // markNotificationsRead();
           }}
           className={clsx("cursor-pointer symbol", userAvatarClass)}
           id="kt_activities_toggle"

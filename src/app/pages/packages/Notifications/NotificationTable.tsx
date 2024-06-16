@@ -99,6 +99,8 @@ const NotificationTable: React.FC<any> = ({
           { params }
         )(setLoading);
 
+        markNotificationsRead();
+
         setFetchData(resp);
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -106,8 +108,20 @@ const NotificationTable: React.FC<any> = ({
       }
     };
 
-    getfetchData();
+    if (refreshDataToggle) {
+      getfetchData();
+    }
   }, [page, status, refreshDataToggle]);
+
+  const markNotificationsRead = async () => {
+    try {
+      await handleGetRequest(`/notification/markAsRead?noti_for=admin`)(
+        setLoading
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="table-responsive scroll-x">

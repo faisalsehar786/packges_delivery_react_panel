@@ -85,18 +85,20 @@ export default function OversiktMain() {
           // description='Fra alle customer'
           numbertext={statsApp?.user_type_customer_count}
         />
-        <MixedWidget13
-          className="card-xl-stretch  card_borderC col"
-          backGroundColor="#ffff"
-          chartHeight="60px"
-          title="Antall sendinger"
-          // description='Til HmHy'
-          numbertext={stats?.total}
-        />
       </div>
 
       <div className="row overview gap-2 mt-4">
         {/* First row */}
+        <div className="col-lg-5">
+          <MixedWidget13
+            className="card-xl-stretch  card_borderC col"
+            backGroundColor="#ffff"
+            chartHeight="60px"
+            title="Antall sendinger"
+            // description='Til HmHy'
+            numbertext={stats?.total}
+          />
+        </div>
 
         <MixedWidget13
           className="card-xl-stretch  card_borderC col"
@@ -115,6 +117,8 @@ export default function OversiktMain() {
           // description='Til HmHy'
           numbertext={stats?.order_awaiting_for_payment}
         />
+      </div>
+      <div className="row overview gap-2 mt-4">
         <MixedWidget13
           className="card-xl-stretch  card_borderC col"
           backGroundColor="#ffff"

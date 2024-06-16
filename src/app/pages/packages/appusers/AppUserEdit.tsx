@@ -201,10 +201,10 @@ const AppUserEdit: React.FC = () => {
 
         <div className="d-flex flex-wrap my-2">
           <div className="">
-            <Link to="/home/app-users/create" className="btn btn-primary">
+            {/* <Link to="/home/app-users/create" className="btn btn-primary">
               <i className="bi bi-person-plus-fill iconbtnStylecx  me-2" />
               Oversikt brukere
-            </Link>
+            </Link> */}
           </div>
           {/* <a
             href='#'
