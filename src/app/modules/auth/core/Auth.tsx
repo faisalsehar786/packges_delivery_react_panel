@@ -75,6 +75,7 @@ const AuthProvider: FC = ({ children }) => {
     setCurrentUser(undefined);
     setToken(undefined);
     localStorage.clear();
+    setrefreshNotification(false);
   };
 
   return (

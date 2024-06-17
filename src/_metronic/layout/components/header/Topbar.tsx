@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { useAuth } from "../../../../app/modules/auth";
 import MasterlayoutContext from "../../../../context/Masterlayout/layoutContext";
 import { KTSVG, toAbsoluteUrl } from "../../../helpers";
 import { HeaderUserMenu } from "../../../partials";
 import { useLayout } from "../../core";
-import { Link } from "react-router-dom";
+
 import { handleGetRequest } from "../../../../app/services";
 
 const itemClass = "ms-1 ms-lg-3",
@@ -17,15 +17,10 @@ const itemClass = "ms-1 ms-lg-3",
 const Topbar: FC = () => {
   const { config } = useLayout();
   const masterlayoutContextRecive = useContext(MasterlayoutContext);
-  const markNotificationsRead = async () => {
-    try {
-      await handleGetRequest(`/notification/markAsRead?noti_for=admin`)(
-        () => {}
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [notificationData, setnotificationData] = useState(0);
+  const [failureCount, setFailureCount] = useState(0);
+  const [error, setError] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const { successMessageSupport, setsuccessMessageSupport } =
     masterlayoutContextRecive;
   // const {currentUser, logout} = useAuth()
@@ -34,6 +29,43 @@ const Topbar: FC = () => {
   const getInitials = (firstName = "", lastName = "") => {
     return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   };
+  const fetchData = async () => {
+    try {
+      setIsFetching(true); // Set fetching status to true when request starts
+
+      const { unread_notifications_count } = await handleGetRequest(
+        `/notification//app/unread/count?noti_for=admin`
+      )(() => {});
+
+      setnotificationData(unread_notifications_count);
+      setFailureCount(0); // Reset failure count on successful fetch
+    } catch (error) {
+      setError(error?.message);
+      setFailureCount((prevCount) => prevCount + 1); // Increment failure count on error
+    } finally {
+      setIsFetching(false); // Set fetching status to false regardless of success or failure
+    }
+  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // Check if not already fetching and failure count is less than 3 before making another request
+      if (!isFetching && failureCount < 3) {
+        if (currentUser) {
+          fetchData();
+        }
+      } else {
+        clearInterval(intervalId); // Stop further requests if conditions are not met
+      }
+    }, 20000); // Call API every 20 seconds
+
+    // Clean up the interval to avoid memory leaks
+    return () => clearInterval(intervalId);
+  }, [isFetching, failureCount]); // Dependency array includes isFetching and failureCount
+
+  useEffect(() => {
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once after initial render
+
   return (
     <div className="d-flex align-items-stretch justify-self-end flex-shrink-0">
       {/* Search */}
@@ -162,10 +194,12 @@ const Topbar: FC = () => {
             }}
           >
             <i className="fa-duotone fa-bell fs-2"></i>
-            <span
-              className="bullet bullet-dot bg-danger h-10px w-10px position-absolute translate-middle start-50 "
-              style={{ top: 5 }}
-            ></span>
+            {notificationData > 0 ? (
+              <span
+                className="bullet bullet-dot bg-danger h-10px w-10px position-absolute translate-middle start-50 "
+                style={{ top: 5 }}
+              ></span>
+            ) : null}
           </div>
           {/* end::Drawer toggle */}
         </div>
