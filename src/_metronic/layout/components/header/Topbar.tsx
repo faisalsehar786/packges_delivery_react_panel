@@ -63,7 +63,9 @@ const Topbar: FC = () => {
   }, [isFetching, failureCount]); // Dependency array includes isFetching and failureCount
 
   useEffect(() => {
-    fetchData();
+    if (currentUser) {
+      fetchData();
+    }
   }, []); // Empty dependency array means this effect runs once after initial render
 
   return (
