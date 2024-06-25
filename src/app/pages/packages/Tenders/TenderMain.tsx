@@ -6,13 +6,16 @@ import { MixedWidget13 } from "../../../../_metronic/partials/widgets/mixed/Mixe
 import { handleGetRequest } from "../../../services";
 import TenderTable from "./TenderTable";
 import TenderSearch from "./TenderSearch";
-
+import moment from "moment";
 export default function TenderMain() {
   const [stats, setStats] = useState<any>();
   const { setLoading } = useContext(LoadingContext);
   const [search] = useState("");
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const [status, setstatus] = useState<any>("all");
+  const [startDate, setStartDate] = useState(
+    `${moment().format("YYYY-MM-DD")}`
+  );
 
   const getStats = async () => {
     const { data } = await handleGetRequest("/admin/get_admin_stats")(
@@ -153,9 +156,17 @@ export default function TenderMain() {
               </span>
             </h3>
             <div className="d-flex">
-              <div className="w-550px">
+              <div className="w-550px ">
                 <TenderSearch status={status} />
               </div>
+
+              {/* <input
+                type="date"
+                className="form-control w-25"
+                value={startDate}
+                onChange={(e: any) => setStartDate(e.target.value)}
+              ></input> */}
+
               <select
                 className="form-control selectpicker w-250px card_borderC "
                 onChange={(e) => setstatus(e.target.value)}

@@ -46,6 +46,7 @@
     "react-breadcrumbs-context": "^1.1.0",
     "react-copy-to-clipboard": "^5.0.3",
     "react-datepicker": "^4.11.0",
+    "react-daterange-picker": "^2.0.1",
     "react-dom": "^17.0.2",
     "react-dropzone": "^14.2.1",
     "react-easy-crop": "^5.0.0",
