@@ -52,14 +52,20 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
   );
 };
 
-const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
+const NotificationTable: React.FC<any> = ({
+  status,
+  search,
+  hide,
+  logo,
+  refreshDataToggle,
+}) => {
   const [page, setPage] = useState(1);
   const [fetchData, setFetchData] = useState<any>();
   const [limit, setlimit] = useState<any>(10);
   const { setLoading } = useContext(LoadingContext);
 
   const statusCheck = [
-    { label: "All", val: "all" },
+    { label: "Alle", val: "all" },
 
     { label: "Deliveries", val: "tender" },
     { label: "Payments", val: "payment" },
@@ -102,8 +108,10 @@ const NotificationTable: React.FC<any> = ({ status, search, hide, logo }) => {
       }
     };
 
-    getfetchData();
-  }, [page, status]);
+    if (refreshDataToggle) {
+      getfetchData();
+    }
+  }, [page, status, refreshDataToggle]);
 
   const markNotificationsRead = async () => {
     try {

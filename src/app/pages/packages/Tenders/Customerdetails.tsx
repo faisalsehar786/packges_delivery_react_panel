@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Customerdetails(props: any) {
   const { fhData, title } = props;
+
   return (
     <div className="card mb-5 mb-xl-10" id="kt_profile_details_view">
       {/*begin::Card header*/}
@@ -21,7 +22,7 @@ export default function Customerdetails(props: any) {
         {/*begin::Row*/}
         <div className="row mb-7">
           {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">Name</label>
+          <label className="col-lg-4 fw-semibold text-muted">Navn</label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8">
@@ -35,7 +36,7 @@ export default function Customerdetails(props: any) {
         {/*begin::Input group*/}
         <div className="row mb-7">
           {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">Email</label>
+          <label className="col-lg-4 fw-semibold text-muted">E-post</label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8 fv-row">
@@ -50,7 +51,7 @@ export default function Customerdetails(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            Phone No
+            Telefonnr
             <span
               className="ms-1"
               data-bs-toggle="tooltip"
@@ -71,21 +72,37 @@ export default function Customerdetails(props: any) {
             <span className="fw-bold fs-6 text-gray-800 me-2">
               {fhData?.mobile_number}
             </span>
-            <span className="badge badge-success">Verified</span>
+            <span className="badge badge-success">Verifisert</span>
           </div>
+          {/*end::Col*/}
+        </div>
+        <div className="row mb-7">
+          {/*begin::Label*/}
+          <label className="col-lg-4 fw-semibold text-muted">Vurdering</label>
+          {/*end::Label*/}
+          {/*begin::Col*/}
+          <div className="col-lg-8 fv-row">
+            <span className="fw-semibold text-gray-800 fs-6">
+              {fhData?.rating}
+            </span>
+          </div>
+
           {/*end::Col*/}
         </div>
 
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            Current Location{" "}
+            Nåværende lokasjon{" "}
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8 fv-row">
             <span className="fw-semibold text-gray-800 fs-6">
               {fhData?.current_location?.address}
+            </span>
+
+            <div style={{ width: 400, height: 300 }}>
               <iframe
                 src={`https://maps.google.com/maps?q=${fhData?.current_location?.coordinates
                   ?.reverse()
@@ -94,7 +111,7 @@ export default function Customerdetails(props: any) {
                 height={270}
                 style={{ border: 0 }}
               />
-            </span>
+            </div>
           </div>
           {/*end::Col*/}
         </div>

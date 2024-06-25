@@ -96,11 +96,11 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
           })}
         >
           {goal?.order?.order_status === "awaiting_for_payment" &&
-            "awaiting for payment"}
-          {goal?.order?.order_status === "completed" && "completed"}
-          {goal?.order?.order_status === "payment_done" && "payment done"}
+            "Ikke betalt"}
+          {goal?.order?.order_status === "completed" && "Fullførte"}
+          {goal?.order?.order_status === "payment_done" && "Betalte"}
           {goal?.order?.order_status === "cancel" && "Avbrutt"}
-          {goal?.order?.order_status === "processing" && "processing"}
+          {goal?.order?.order_status === "processing" && "Aktive"}
         </span>
       </td>
     </tr>
@@ -116,17 +116,16 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
   const { setLoading } = useContext(LoadingContext);
 
   const orderStatusCheck = [
-    { label: "Payment done", val: "payment_done" },
-    { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    { label: "Processing", val: "processing" },
-    // {label: 'On the Way', val: 'on_the_way'},
-    { label: "Completed", val: "completed" },
-    { label: "Cancel", val: "cancel" },
+    { label: "Betalt", val: "payment_done" },
+    { label: "Ikke betalt", val: "awaiting_for_payment" },
+    { label: "Aktive", val: "processing" },
+    { label: "Fullførte", val: "completed" },
+    { label: "Kansellerte", val: "cancel" },
   ];
 
   const statusCheck = [
-    { label: "accepted", val: "accepted" },
-    { label: "published", val: "Published" },
+    { label: "Aksepterte", val: "accepted" },
+    { label: "published", val: "Publiserte" },
   ];
   const findStatus = (object: any, statusKey: any) => {
     return object?.find((it: any) => it?.val == statusKey);
@@ -152,13 +151,18 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
         search,
         sortBy,
         order,
-        order_status: "processing",
+
         withOrCond: "yes",
-        status: status
-          ? findStatus(statusCheck, status)
-            ? findStatus(statusCheck, status)?.val
-            : "all"
-          : "all",
+        order_status: status
+          ? findStatus(orderStatusCheck, status)
+            ? findStatus(orderStatusCheck, status)?.val
+            : "processing"
+          : "processing",
+        // status: status
+        //   ? findStatus(statusCheck, status)
+        //     ? findStatus(statusCheck, status)?.val
+        //     : "all"
+        //   : "accepted",
       };
 
       try {
