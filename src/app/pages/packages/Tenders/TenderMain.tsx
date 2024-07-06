@@ -6,13 +6,16 @@ import { MixedWidget13 } from "../../../../_metronic/partials/widgets/mixed/Mixe
 import { handleGetRequest } from "../../../services";
 import TenderTable from "./TenderTable";
 import TenderSearch from "./TenderSearch";
-
+import moment from "moment";
 export default function TenderMain() {
   const [stats, setStats] = useState<any>();
   const { setLoading } = useContext(LoadingContext);
   const [search] = useState("");
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const [status, setstatus] = useState<any>("all");
+  const [startDate, setStartDate] = useState(
+    `${moment().format("YYYY-MM-DD")}`
+  );
 
   const getStats = async () => {
     const { data } = await handleGetRequest("/admin/get_admin_stats")(
@@ -46,15 +49,15 @@ export default function TenderMain() {
   }, []);
 
   const statusData = [
-    { label: "All", val: "all" },
-    { label: "Accepted", val: "accepted" },
-    { label: "Published", val: "Published" },
-    { label: "Payment done", val: "payment_done" },
-    { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    { label: "Processing", val: "processing" },
+    { label: "Alle", val: "all" },
+    { label: "Aksepterte", val: "accepted" },
+    { label: "Publiserte", val: "Publiserte" },
+    { label: "Betalt", val: "payment_done" },
+    { label: "Ikke betalt", val: "awaiting_for_payment" },
+    { label: "Aktive", val: "processing" },
     // { label: 'On the Way', val: 'on_the_way' },
-    { label: "Completed", val: "completed" },
-    { label: "Cancel", val: "cancel" },
+    { label: "Fullførte", val: "completed" },
+    { label: "Kansellerte", val: "cancel" },
   ];
 
   return (
@@ -105,7 +108,7 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Total Jobs"
+              title="Antall sendinger"
               // description='totalt fra alle organisasjoner'
               numbertext={stats?.total}
             />
@@ -116,7 +119,7 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs awaiting for payment"
+              title="Sendinger klare for betaling"
               // description='totalt fra alle organisasjoner'
               numbertext={stats?.order_awaiting_for_payment}
             />
@@ -126,8 +129,8 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs on processing"
-              // description='Jobs on processing'
+              title="Aktive sendinger"
+              // description='Aktive sendinger'
               numbertext={stats?.order_processing}
             />
           </div>
@@ -136,8 +139,8 @@ export default function TenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs completed"
-              // description='Jobs completed '
+              title="sendinger Fullførte"
+              // description='sendinger Fullførte '
               numbertext={stats?.order_completed}
             />
           </div>
@@ -148,13 +151,22 @@ export default function TenderMain() {
           <div className="card-header border-0 py-5 d-flex align-items-center">
             <h3 className="card-title align-items-start flex-column ">
               <span className="card-label fw-bold fs-3 mb-1">
-                Publiserte jobber
+                {" "}
+                Oversikt sendinger
               </span>
             </h3>
             <div className="d-flex">
-              <div className="w-550px">
-                <TenderSearch />
+              <div className="w-550px ">
+                <TenderSearch status={status} />
               </div>
+
+              {/* <input
+                type="date"
+                className="form-control w-25"
+                value={startDate}
+                onChange={(e: any) => setStartDate(e.target.value)}
+              ></input> */}
+
               <select
                 className="form-control selectpicker w-250px card_borderC "
                 onChange={(e) => setstatus(e.target.value)}

@@ -39,22 +39,22 @@ export default function AppUserMain() {
   }, []);
 
   const statusData = [
-    { label: "All", val: "all" },
-    { label: "driver", val: "driver" },
-    { label: "customer", val: "customer" },
+    { label: "Alle", val: "all" },
+    { label: "Sjåfør", val: "driver" },
+    { label: "Sluttbruker", val: "customer" },
   ];
 
   return (
     <>
       <div className="d-flex flex-wrap flex-stack mb-6">
-        <h3 className="fw-bolder my-2">Key figures</h3>
+        <h3 className="fw-bolder my-2">Nøkkeltall</h3>
 
         <div className="d-flex flex-wrap my-2">
           <div className="">
-            <Link to="/home/app-users/create" className="btn btn-primary">
+            {/* <Link to="/home/app-users/create" className="btn btn-primary">
               <i className="bi bi-person-plus-fill iconbtnStylecx  me-2" />
               Oversikt brukere
-            </Link>
+            </Link> */}
           </div>
           {/* <a
             href='#'
@@ -88,48 +88,48 @@ export default function AppUserMain() {
       <>
         <div className="row">
           {/* begin::Col */}
-          <div className="col-xl-3 ">
+          <div className="col-xl-4 ">
             <MixedWidget13
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Total App Users "
+              title="Antall app brukere "
               // description='totalt på HYHM plattformen'
               numbertext={statsuser?.total}
             />
           </div>
           {/* Aktive antall organisasjoner */}
-          <div className="col-xl-3 ">
+          <div className="col-xl-4 ">
             <MixedWidget13
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Total Drivers"
+              title="Antall sjåfører"
               // description='totalt på HYHM plattformen'
               numbertext={statsuser?.user_type_driver_count}
             />
           </div>
 
-          <div className="col-xl-3 ">
+          <div className="col-xl-4 ">
             <MixedWidget13
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Total Customer"
+              title="Antall sluttbrukere"
               // description='totalt fra alle organisasjoner'
               numbertext={statsuser?.user_type_customer_count}
             />
           </div>
-          <div className="col-xl-3 ">
+          {/* <div className="col-xl-3 ">
             <MixedWidget13
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Drivers Accepted Jobs"
+              title="Drivers Aksepterte Jobs"
               // description='Fra alle customer'
               numbertext={stats?.driver_order_accepted}
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="card mb-5 mb-xl-8">

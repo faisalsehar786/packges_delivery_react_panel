@@ -159,17 +159,21 @@ const AppUserTable = (props: any) => {
                 </div>
               </td>
               <td>
-                <span className="text-dark fw-bold d-block mb-1 fs-6">
-                  {
-                    support?.user_type?.find((o: any) => o.role == "driver")
-                      ?.role
-                  }
-                  ,{" "}
-                  {
-                    support?.user_type?.find((o: any) => o.role == "customer")
-                      ?.role
-                  }
-                </span>
+                <div className="d-flex flex-shrink-0">
+                  {support?.user_type?.find((o: any) => o.role == "driver") ? (
+                    <span className="badge badge-success fw-bold d-block mb-1 fs-6 mx-1">
+                      Sjåfør
+                    </span>
+                  ) : null}
+
+                  {support?.user_type?.find(
+                    (o: any) => o.role == "customer"
+                  ) ? (
+                    <span className="badge badge-success fw-bold d-block mb-1 fs-6 mx-1">
+                      Sluttbruker
+                    </span>
+                  ) : null}
+                </div>
               </td>
 
               <td>

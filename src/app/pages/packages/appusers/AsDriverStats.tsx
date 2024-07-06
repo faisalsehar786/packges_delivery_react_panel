@@ -45,7 +45,7 @@ export default function AsDriverStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="Total"
+                title="Antall sendinger "
                 // description='totalt på HYHM plattformen'
                 numbertext={statsuser?.total}
               />
@@ -56,7 +56,7 @@ export default function AsDriverStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="Active"
+                title="Aktive"
                 // description='totalt på HYHM plattformen'
                 numbertext={statsuser?.tender_accepted}
               />
@@ -68,7 +68,7 @@ export default function AsDriverStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="awaiting for payment "
+                title="Venter betaling"
                 // description='totalt fra alle organisasjoner'
                 numbertext={statsuser?.order_awaiting_for_payment}
               />
@@ -78,7 +78,7 @@ export default function AsDriverStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="cancel
+                title="Kansellert
   "
                 // description='Fra alle customer'
                 numbertext={statsuser?.order_cancel}
@@ -91,7 +91,7 @@ export default function AsDriverStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="completed
+                title="Fullført
   "
                 // description='Fra alle customer'
                 numbertext={statsuser?.order_completed}

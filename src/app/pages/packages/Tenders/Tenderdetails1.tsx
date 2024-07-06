@@ -2,6 +2,20 @@ import React from "react";
 import moment from "moment";
 export default function Tenderdetails1(props: any) {
   const { fhData, title } = props;
+  const dataFilter = [
+    { label: "Se alle", val: "all" },
+    { label: "Betaling gjennomført", val: "payment_done" },
+    { label: "Venter på betaling", val: "awaiting_for_payment" },
+    { label: "Behandling", val: "processing" },
+    { label: "Fullført", val: "completed" },
+    { label: "venter på godkjenning", val: "awaiting_for_approval" },
+    { label: "Avbryt", val: "cancel" },
+    { label: "Aktiv", val: "accepted" },
+    { label: "publisert", val: "published" },
+    { label: "utkast", val: "draft" },
+    { label: "stigende", val: "asc" },
+    { label: "synkende", val: "desc" },
+  ];
   return (
     <div className="card mb-5 mb-xl-10" id="kt_profile_details_view">
       {/*begin::Card header*/}
@@ -21,7 +35,7 @@ export default function Tenderdetails1(props: any) {
         {/*begin::Row*/}
         <div className="row mb-7">
           {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">Title</label>
+          <label className="col-lg-4 fw-semibold text-muted">Navn</label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8">
@@ -34,7 +48,7 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            Pick up Date
+            Sendes innen
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
@@ -48,7 +62,7 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            Delivery Date{" "}
+            Leveres innen{" "}
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
@@ -63,7 +77,7 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            locatio from{" "}
+            Avsender adresse{" "}
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
@@ -71,14 +85,16 @@ export default function Tenderdetails1(props: any) {
             <span className="fw-semibold text-gray-800 fs-6">
               {fhData?.location_from?.address}
             </span>
-            <iframe
-              src={`https://maps.google.com/maps?q=${fhData?.location_from?.coordinates
-                ?.reverse()
-                .toString()}&z=15&output=embed`}
-              width={360}
-              height={270}
-              style={{ border: 0 }}
-            />
+            <div style={{ width: 400, height: 300 }}>
+              <iframe
+                src={`https://maps.google.com/maps?q=${fhData?.location_from?.coordinates
+                  ?.reverse()
+                  .toString()}&z=15&output=embed`}
+                width={360}
+                height={270}
+                style={{ border: 0 }}
+              />
+            </div>
           </div>
           {/*end::Col*/}
         </div>
@@ -86,13 +102,15 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            location to{" "}
+            Mottaker adresse{" "}
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8 fv-row">
             <span className="fw-semibold text-gray-800 fs-6">
               {fhData?.location_to?.address}
+            </span>
+            <div style={{ width: 400, height: 300 }}>
               <iframe
                 src={`https://maps.google.com/maps?q=${fhData?.location_to?.coordinates
                   ?.reverse()
@@ -101,7 +119,7 @@ export default function Tenderdetails1(props: any) {
                 height={270}
                 style={{ border: 0 }}
               />
-            </span>
+            </div>
           </div>
           {/*end::Col*/}
         </div>
@@ -110,7 +128,7 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            Tracking No
+            Sporings ID
             <span
               className="ms-1"
               data-bs-toggle="tooltip"
@@ -128,10 +146,10 @@ export default function Tenderdetails1(props: any) {
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8 d-flex align-items-center">
-            <span className="fw-bold fs-6 text-gray-800 me-2">
+            <span className="fw-bold fs-6 text-success me-2">
               {fhData?.order?.order_no}
             </span>
-            <span className="badge badge-success">Verified</span>
+            <span className="badge badge-success">Verifisert</span>
           </div>
           {/*end::Col*/}
         </div>
@@ -141,13 +159,15 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            current location
+            Nåværende plassering
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8">
             <span className="fw-semibold text-danger fs-6">
               {fhData?.order?.order_current_location?.order_address}
+            </span>
+            <div style={{ width: 400, height: 300 }}>
               <iframe
                 src={`https://maps.google.com/maps?q=${fhData?.order?.order_current_location?.coordinates
                   ?.reverse()
@@ -156,14 +176,14 @@ export default function Tenderdetails1(props: any) {
                 height={270}
                 style={{ border: 0 }}
               />
-            </span>
+            </div>
           </div>
           {/*end::Col*/}
         </div>
 
         <div className="row mb-7">
           {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">Price</label>
+          <label className="col-lg-4 fw-semibold text-muted">Frakt pris</label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8">
@@ -177,7 +197,7 @@ export default function Tenderdetails1(props: any) {
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
-            deliver to details
+            Mottaker detaljer
           </label>
           {/*end::Label*/}
           {/*begin::Col*/}
@@ -191,7 +211,7 @@ export default function Tenderdetails1(props: any) {
 
         <div className="row mb-7">
           {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">description</label>
+          <label className="col-lg-4 fw-semibold text-muted">Beskrivelse</label>
           {/*end::Label*/}
           {/*begin::Col*/}
           <div className="col-lg-8">
@@ -202,6 +222,33 @@ export default function Tenderdetails1(props: any) {
           {/*end::Col*/}
         </div>
 
+        {/* <div className="row mb-7">
+       
+          <label className="col-lg-4 fw-semibold text-muted">
+            Status
+            <span
+              className="ms-1"
+              data-bs-toggle="tooltip"
+              aria-label="Phone number must be active"
+              data-bs-original-title="Phone number must be active"
+              data-kt-initialized={1}
+            >
+              <i className="ki-duotone ki-information fs-7">
+                <span className="path1" />
+                <span className="path2" />
+                <span className="path3" />
+              </i>
+            </span>
+          </label>
+      
+          <div className="col-lg-8 d-flex align-items-center">
+            <span className="badge badge-success">
+          
+              {fhData?.tender_status}
+            </span>
+          </div>
+         
+        </div> */}
         <div className="row mb-7">
           {/*begin::Label*/}
           <label className="col-lg-4 fw-semibold text-muted">
@@ -225,35 +272,11 @@ export default function Tenderdetails1(props: any) {
           <div className="col-lg-8 d-flex align-items-center">
             <span className="badge badge-success">
               {" "}
-              {fhData?.tender_status}
-            </span>
-          </div>
-          {/*end::Col*/}
-        </div>
-        <div className="row mb-7">
-          {/*begin::Label*/}
-          <label className="col-lg-4 fw-semibold text-muted">
-            Order Status
-            <span
-              className="ms-1"
-              data-bs-toggle="tooltip"
-              aria-label="Phone number must be active"
-              data-bs-original-title="Phone number must be active"
-              data-kt-initialized={1}
-            >
-              <i className="ki-duotone ki-information fs-7">
-                <span className="path1" />
-                <span className="path2" />
-                <span className="path3" />
-              </i>{" "}
-            </span>
-          </label>
-          {/*end::Label*/}
-          {/*begin::Col*/}
-          <div className="col-lg-8 d-flex align-items-center">
-            <span className="badge badge-success">
-              {" "}
-              {fhData?.order?.order_status}
+              {
+                dataFilter.find(
+                  (item) => item.val === fhData?.order?.order_status
+                )?.label
+              }
             </span>
           </div>
           {/*end::Col*/}

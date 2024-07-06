@@ -8,8 +8,9 @@ import ActiveTenderSearch from "./ActiveTenderSearch";
 export default function ActiveTenderMain() {
   const [stats, setStats] = useState<any>();
   const { setLoading } = useContext(LoadingContext);
-  const [status, setstatus] = useState<any>("accepted");
+  const [status, setstatus] = useState<any>("processing");
   const [search] = useState("");
+
   const getStats = async () => {
     const { data } = await handleGetRequest("/admin/get_admin_stats")(
       setLoading
@@ -17,15 +18,15 @@ export default function ActiveTenderMain() {
     setStats(data);
   };
   const statusData = [
-    // { label: "All", val: "all" },
-    { label: "Active", val: "accepted" },
-    // { label: "Published", val: "Published" },
-    // { label: "Payment done", val: "payment_done" },
-    // { label: "Awaiting for payment", val: "awaiting_for_payment" },
-    // { label: "Processing", val: "processing" },
-    // { label: 'On the Way', val: 'on_the_way' },
-    // { label: "Completed", val: "completed" },
-    // { label: "Cancel", val: "cancel" },
+    // { label: "Alle", val: "all" },
+    // { label: "Aksepterte", val: "accepted" },
+    // { label: "Publiserte", val: "Publiserte" },
+
+    { label: "Aktive", val: "processing" },
+    { label: "Betalt", val: "payment_done" },
+    { label: "Ikke betalt", val: "awaiting_for_payment" },
+    { label: "Fullførte", val: "completed" },
+    { label: "Kansellerte", val: "cancel" },
   ];
   useEffect(() => {
     getStats();
@@ -49,7 +50,7 @@ export default function ActiveTenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs Total"
+              title="Antall leveringer"
               // description='totalt på HYHM plattformen'
               numbertext={stats?.total}
             />
@@ -60,7 +61,7 @@ export default function ActiveTenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs on processing"
+              title="Aktive leveringer"
               // description='totalt på HYHM plattformen'
               numbertext={stats?.order_processing}
             />
@@ -71,7 +72,7 @@ export default function ActiveTenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs awaiting for payment"
+              title="Leveringer klare for betaling"
               // description='totalt fra alle organisasjoner'
               numbertext={stats?.order_awaiting_for_payment}
             />
@@ -81,7 +82,7 @@ export default function ActiveTenderMain() {
               className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
               backGroundColor="#ffff"
               chartHeight="60px"
-              title="Jobs Payments Done"
+              title="Betalte leveringer"
               // description='Fra alle customer'
               numbertext={stats?.order_payment_done}
             />
@@ -93,12 +94,12 @@ export default function ActiveTenderMain() {
           <div className="card-header border-0  py-5 d-flex align-items-center">
             <h3 className="card-title align-items-start flex-column ">
               <span className="card-label fw-bold fs-3 mb-1">
-                Aktive leveringer
+                Oversikt leveringer
               </span>
             </h3>
             <div className="d-flex">
               <div className="w-550px">
-                <ActiveTenderSearch />
+                <ActiveTenderSearch status={status} />
               </div>
               <select
                 value={status}

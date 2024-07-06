@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AsyncPaginate } from 'react-select-async-paginate'
-import { handleGetRequest } from '../../../services'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AsyncPaginate } from "react-select-async-paginate";
+import { handleGetRequest } from "../../../services";
 
 type OptionType = {
-  value: number | null
-  label: string
-}
+  value: number | null;
+  label: string;
+};
 
 const ActiveTenderSearch: React.FC = () => {
-  const [value, onChange] = useState<OptionType | null>()
-  let hasMore = true
-  let searchTerm = ''
-  let currentPage = 0
-  const navigate = useNavigate()
+  const [value, onChange] = useState<OptionType | null>();
+  let hasMore = true;
+  let searchTerm = "";
+  let currentPage = 0;
+  const navigate = useNavigate();
 
   const loadOptions = async (search: string) => {
-    let goals = []
+    let goals = [];
 
     if (search === searchTerm) {
-      currentPage += 1
+      currentPage += 1;
     } else {
-      currentPage = 1
-      searchTerm = search
-      hasMore = true
+      currentPage = 1;
+      searchTerm = search;
+      hasMore = true;
     }
 
     if (search && hasMore) {
-      const pageNo = currentPage
-      const pageSize = 100
+      const pageNo = currentPage;
+      const pageSize = 100;
 
       try {
         const { data, pagination }: any = await handleGetRequest(
@@ -40,38 +40,38 @@ const ActiveTenderSearch: React.FC = () => {
               limit: pageSize,
             },
           }
-        )(() => {})
+        )(() => {});
 
         goals = data.map((goal: any) => {
           return {
             value: goal?._id,
             label: `${goal.title} - ${goal?.order?.order_no}`,
-          }
-        })
+          };
+        });
 
-        const { page, pages } = pagination
+        const { page, pages } = pagination;
 
-        hasMore = page < pages
+        hasMore = page < pages;
       } catch (error) {
-        currentPage = 0
-        searchTerm = ''
+        currentPage = 0;
+        searchTerm = "";
       }
     } else {
-      currentPage = 0
-      searchTerm = ''
+      currentPage = 0;
+      searchTerm = "";
     }
 
     return {
       options: [...goals],
       hasMore,
-    }
-  }
+    };
+  };
 
   useEffect(() => {
     if (value) {
-      navigate(`/home/published_job/${value.value}`)
+      navigate(`/home/published_job/${value.value}`);
     }
-  }, [value])
+  }, [value]);
 
   return (
     <AsyncPaginate
@@ -82,8 +82,8 @@ const ActiveTenderSearch: React.FC = () => {
       components={{
         DropdownIndicator: null,
       }}
-      placeholder='Søk etter jobber...'
-      className='w-100'
+      placeholder="Søk sendinger..."
+      className="w-100"
       styles={{
         control: (provided) => ({
           ...provided,
@@ -108,16 +108,16 @@ const ActiveTenderSearch: React.FC = () => {
           // height: 40px;
           // padding: 10px 15px;
 
-          borderColor: '#c6e0ec',
-          borderRadius: '8px',
-          color: '#5d6d7e',
-          fontSize: '14px',
-          height: '46px',
+          borderColor: "#c6e0ec",
+          borderRadius: "8px",
+          color: "#5d6d7e",
+          fontSize: "14px",
+          height: "46px",
         }),
       }}
-      noOptionsMessage={() => (searchTerm ? 'Ingen resultater' : null)}
+      noOptionsMessage={() => (searchTerm ? "Ingen resultater" : null)}
     />
-  )
-}
+  );
+};
 
-export default ActiveTenderSearch
+export default ActiveTenderSearch;
