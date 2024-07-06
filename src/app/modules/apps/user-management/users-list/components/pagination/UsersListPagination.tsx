@@ -1,45 +1,45 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import clsx from 'clsx'
-import { useQueryRequest } from '../../core/QueryRequestProvider'
+import clsx from "clsx";
+import { useQueryRequest } from "../../core/QueryRequestProvider";
 import {
   useQueryResponseLoading,
   useQueryResponsePagination,
-} from '../../core/QueryResponseProvider'
+} from "../../core/QueryResponseProvider";
 
 const UsersListPagination = () => {
-  const pagination = useQueryResponsePagination()
-  const isLoading = useQueryResponseLoading()
-  const { updateState } = useQueryRequest()
+  const pagination = useQueryResponsePagination();
+  const isLoading = useQueryResponseLoading();
+  const { updateState } = useQueryRequest();
   const updatePage = (page: number | null) => {
     if (!page || isLoading || pagination.page === page) {
-      return
+      return;
     }
 
-    updateState({ page, items_per_page: pagination.items_per_page || 10 })
-  }
+    updateState({ page, items_per_page: pagination.items_per_page || 10 });
+  };
 
   return (
-    <div className='row'>
-      <div className='col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start' />
-      <div className='col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'>
-        <div id='kt_table_users_paginate'>
-          <ul className='pagination'>
+    <div className="row">
+      <div className="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start" />
+      <div className="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+        <div id="kt_table_users_paginate">
+          <ul className="pagination">
             {pagination.links?.map((link) => (
               <li
                 key={link.label}
-                className={clsx('page-item', {
+                className={clsx("page-item", {
                   active: pagination.page === link.page,
                   disabled: isLoading,
-                  previous: link.label === '&laquo; Previous',
-                  next: link.label === 'Next &raquo;',
+                  previous: link.label === "&laquo; Previous",
+                  next: link.label === "Next &raquo;",
                 })}
               >
                 <a
-                  className='page-link'
+                  className="page-link"
                   onClick={() => updatePage(link.page)}
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{ __html: link.label }}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 />
               </li>
             ))}
@@ -47,7 +47,7 @@ const UsersListPagination = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { UsersListPagination }
+export { UsersListPagination };

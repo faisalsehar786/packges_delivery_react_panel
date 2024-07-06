@@ -20,7 +20,7 @@ $rotate-transition: transform 0.3s ease;
       transform: rotateZ(#{$value}deg);
       transition: $rotate-transition;
 
-      [direction='rtl'] & {
+      [direction="rtl"] & {
         transform: rotateZ(-#{$value}deg);
       }
     }
@@ -36,7 +36,7 @@ $rotate-transition: transform 0.3s ease;
       transform: rotateZ(-#{$value}deg);
       transition: $rotate-transition;
 
-      [direction='rtl'] & {
+      [direction="rtl"] & {
         transform: rotateZ(#{$value}deg);
       }
     }

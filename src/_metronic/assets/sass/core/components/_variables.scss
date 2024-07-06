@@ -22,15 +22,15 @@ $dark-mode-page-bg-color: #151521 !default;
 
 // Bootstrap gray colors map
 $grays: (
-  '100': $gray-100,
-  '200': $gray-200,
-  '300': $gray-300,
-  '400': $gray-400,
-  '500': $gray-500,
-  '600': $gray-600,
-  '700': $gray-700,
-  '800': $gray-800,
-  '900': $gray-900,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
 ) !default; // Custom variable
 
 // Bootstrap custom colors
@@ -47,24 +47,28 @@ $cyan: #0dcaf0 !default;
 
 // Bootstrap colors map
 $colors: (
-  'blue': $blue,
-  'indigo': $indigo,
-  'purple': $purple,
-  'pink': $pink,
-  'red': $red,
-  'orange': $orange,
-  'yellow': $yellow,
-  'green': $green,
-  'teal': $teal,
-  'cyan': $cyan,
-  'gray': $gray-600,
-  'gray-dark': $gray-800,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
 ) !default;
 
 // Bootstrap contextual colors
 // Dark colors
 $dark: $gray-900 !default; // Bootstrap variable
-$dark-active: if(isDarkMode(), darken($gray-900, 9%), darken($gray-900, 3%)) !default;
+$dark-active: if(
+  isDarkMode(),
+  darken($gray-900, 9%),
+  darken($gray-900, 3%)
+) !default;
 $dark-light: $gray-200 !default; // Custom variable
 $dark-inverse: if(isDarkMode(), $gray-100, $white) !default; // Custom variable
 
@@ -82,8 +86,16 @@ $secondary-inverse: $gray-800 !default; // Custom variable
 
 // Light colors
 $light: if(isDarkMode(), $gray-300, $gray-100) !default; // Bootstrap variable
-$light-active: if(isDarkMode(), $gray-400, $gray-200) !default; // Custom variable
-$light-inverse: if(isDarkMode(), $gray-800, $gray-600) !default; // Custom variable
+$light-active: if(
+  isDarkMode(),
+  $gray-400,
+  $gray-200
+) !default; // Custom variable
+$light-inverse: if(
+  isDarkMode(),
+  $gray-800,
+  $gray-600
+) !default; // Custom variable
 $lighten: rgba($light, 0.5); // Custom variable
 
 // Success colors
@@ -117,76 +129,76 @@ $white-inverse: $gray-600 !default; // Custom variable
 
 // Theme colors
 $theme-colors: (
-  'white': $white,
+  "white": $white,
   // custom color type
-  'light': $light,
-  'primary': $primary,
-  'secondary': $secondary,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'dark': $dark,
+  "light": $light,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "dark": $dark,
 ) !default;
 
 // Hover colors
 $theme-active-colors: (
-  'white': $white-active,
+  "white": $white-active,
   // custom color type
-  'primary': $primary-active,
-  'secondary': $secondary-active,
-  'light': $light-active,
-  'success': $success-active,
-  'info': $info-active,
-  'warning': $warning-active,
-  'danger': $danger-active,
-  'dark': $dark-active,
+  "primary": $primary-active,
+  "secondary": $secondary-active,
+  "light": $light-active,
+  "success": $success-active,
+  "info": $info-active,
+  "warning": $warning-active,
+  "danger": $danger-active,
+  "dark": $dark-active,
 ) !default; // Custom variable
 
 // Inverse colors
 $theme-inverse-colors: (
-  'white': $white-inverse,
-  'primary': $primary-inverse,
-  'secondary': $secondary-inverse,
-  'light': $light-inverse,
-  'success': $success-inverse,
-  'info': $info-inverse,
-  'warning': $warning-inverse,
-  'danger': $danger-inverse,
-  'dark': $dark-inverse,
+  "white": $white-inverse,
+  "primary": $primary-inverse,
+  "secondary": $secondary-inverse,
+  "light": $light-inverse,
+  "success": $success-inverse,
+  "info": $info-inverse,
+  "warning": $warning-inverse,
+  "danger": $danger-inverse,
+  "dark": $dark-inverse,
 ) !default; // Custom variable
 
 // Light colors
 $theme-light-colors: (
-  'primary': $primary-light,
-  'success': $success-light,
-  'info': $info-light,
-  'warning': $warning-light,
-  'danger': $danger-light,
-  'dark': $dark-light,
+  "primary": $primary-light,
+  "success": $success-light,
+  "info": $info-light,
+  "warning": $warning-light,
+  "danger": $danger-light,
+  "dark": $dark-light,
 ) !default; // Custom variable
 
 // Text colors
 $theme-text-colors: (
-  'white': $white,
-  'primary': $primary,
-  'secondary': $secondary,
-  'light': $light,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'dark': $dark,
-  'muted': $text-muted,
-  'gray-100': $gray-100,
-  'gray-200': $gray-200,
-  'gray-300': $gray-300,
-  'gray-400': $gray-400,
-  'gray-500': $gray-500,
-  'gray-600': $gray-600,
-  'gray-700': $gray-700,
-  'gray-800': $gray-800,
-  'gray-900': $gray-900,
+  "white": $white,
+  "primary": $primary,
+  "secondary": $secondary,
+  "light": $light,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "dark": $dark,
+  "muted": $text-muted,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
 ) !default; // Custom variable
 
 // Options
@@ -402,12 +414,8 @@ $caret-spacing: $caret-width * 0.85 !default;
 $transition-base: all 0.2s ease !default;
 $transition-fade: opacity 0.15s linear !default;
 $transition-collapse: height 0.35s ease !default;
-$transition-link:
-  color 0.2s ease,
-  background-color 0.2s ease !default; // Custom variable
-$transition-input:
-  color 0.2s ease,
-  background-color 0.2s ease !default; // Custom variable
+$transition-link: color 0.2s ease, background-color 0.2s ease !default; // Custom variable
+$transition-input: color 0.2s ease, background-color 0.2s ease !default; // Custom variable
 
 // Components
 //
@@ -507,7 +515,7 @@ $container-padding-x: $grid-gutter-width !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // Font family
-$font-family-sans-serif: Poppins, Helvetica, 'sans-serif' !default;
+$font-family-sans-serif: Poppins, Helvetica, "sans-serif" !default;
 
 $font-size-base: 1rem !default; // Assumes the browser default, typically `13px`
 $font-size-lg: $font-size-base * 1.075 !default; // 14.04px
@@ -593,7 +601,7 @@ $font-sizes: (
   // 68.25px
   5hx: $font-size-base * 5.5,
   // 71.5px
-  5tx: $font-size-base * 5.75 // 74.75px,,,,,,,,,,,,,,
+  5tx: $font-size-base * 5.75 // 74.75px,,,,,,,,,,,,,,,,
 ) !default;
 
 $headings-margin-bottom: $spacer * 0.5 !default;
@@ -627,7 +635,10 @@ $input-btn-line-height: $line-height-base !default;
 
 $input-btn-focus-width: 0.25rem !default;
 $input-btn-focus-color-opacity: 0.25 !default;
-$input-btn-focus-color: rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
+$input-btn-focus-color: rgba(
+  $component-active-bg,
+  $input-btn-focus-color-opacity
+) !default;
 $input-btn-focus-box-shadow: null !default;
 
 $input-color: $gray-700 !default;
@@ -681,11 +692,8 @@ $btn-border-radius: $border-radius !default;
 $btn-border-radius-sm: $border-radius-sm !default;
 $btn-border-radius-lg: $border-radius-lg !default;
 
-$btn-transition:
-  color 0.15s ease-in-out,
-  background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out !default;
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
 $btn-extended-variants: true !default; // Custom variable
 
@@ -741,10 +749,8 @@ $form-check-padding-left: $form-check-input-width + 0.5rem !default;
 $form-check-margin-bottom: 0.125rem !default;
 $form-check-label-color: null !default;
 $form-check-label-cursor: null !default;
-$form-check-transition:
-  background-color 0.15s ease-in-out,
-  background-position 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
+$form-check-transition: background-color 0.15s ease-in-out,
+  background-position 0.15s ease-in-out, border-color 0.15s ease-in-out,
   box-shadow 0.15s ease-in-out !default;
 
 $form-check-input-active-filter: brightness(90%) !default;
@@ -811,7 +817,11 @@ $nav-tabs-border-width: $border-width !default;
 
 // Card
 $card-bg: $body-bg !default;
-$card-box-shadow: if(isDarkMode(), none, 0px 0px 20px 0px rgba(76, 87, 125, 0.02)) !default;
+$card-box-shadow: if(
+  isDarkMode(),
+  none,
+  0px 0px 20px 0px rgba(76, 87, 125, 0.02)
+) !default;
 $card-border-color: $border-color !default;
 $card-border-style: solid !default; // Custom variable
 $card-border-dashed-color: $border-dashed-color !default;
@@ -837,9 +847,7 @@ $accordion-body-padding-x: $accordion-padding-x !default;
 
 $accordion-button-padding-y: $accordion-padding-y !default;
 $accordion-button-padding-x: $accordion-padding-x !default;
-$accordion-transition:
-  $btn-transition,
-  border-radius 0.15s ease !default;
+$accordion-transition: $btn-transition, border-radius 0.15s ease !default;
 $accordion-button-active-bg: $gray-100 !default;
 $accordion-button-active-color: $primary !default;
 
@@ -943,10 +951,8 @@ $pagination-disabled-color: $gray-400 !default;
 $pagination-disabled-bg: transparent !default;
 $pagination-disabled-border-color: transparent !default;
 
-$pagination-transition:
-  color 0.15s ease-in-out,
-  background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
+$pagination-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
   box-shadow 0.15s ease-in-out !default;
 
 // Popovers
@@ -961,7 +967,11 @@ $popover-header-font-weight: 500 !default; // Custom variable
 $popover-header-font-size: 1rem !default; // Custom variable
 $popover-header-padding-y: 1rem !default;
 $popover-header-padding-x: 1.25rem !default;
-$popover-header-border-color: if(isDarkMode(), $gray-300, $gray-100) !default; // Custom variable
+$popover-header-border-color: if(
+  isDarkMode(),
+  $gray-300,
+  $gray-100
+) !default; // Custom variable
 $popover-body-color: $gray-800 !default;
 $popover-body-padding-y: 1.25rem !default;
 $popover-body-padding-x: 1.25rem !default;
@@ -1234,7 +1244,11 @@ $drawer: (
   z-index: 110,
   // Drawer's z-index
   box-shadow:
-    if(isDarkMode(), 0px 0px 30px rgba(0, 0, 0, 0.1), 0px 1px 9px -3px rgba(0, 0, 0, 0.05)),
+    if(
+      isDarkMode(),
+      0px 0px 30px rgba(0, 0, 0, 0.1),
+      0px 1px 9px -3px rgba(0, 0, 0, 0.05)
+    ),
   // Drawer's box shadow
   bg-color: $body-bg,
   // Drawer's background color

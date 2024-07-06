@@ -8,7 +8,7 @@
   transform: rotateZ($angle);
   transition: get($menu, accordion, arrow-transition);
 
-  [direction='rtl'] & {
+  [direction="rtl"] & {
     /*rtl:ignore*/
     transform: rotateZ($angleRtl);
   }
@@ -127,7 +127,13 @@
 }
 
 // Set menu link theme
-@mixin menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color: null) {
+@mixin menu-link-theme(
+  $title-color,
+  $icon-color,
+  $bullet-color,
+  $arrow-color,
+  $bg-color: null
+) {
   @if ($bg-color != null) {
     background-color: $bg-color;
   }
@@ -178,14 +184,20 @@
   $bg-color: null,
   $all-links: true
 ) {
-  $sel: '';
+  $sel: "";
 
   @if ($all-links == false) {
-    $sel: '& > ';
+    $sel: "& > ";
   }
 
   #{$sel}.menu-link {
-    @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
+    @include menu-link-theme(
+      $title-color,
+      $icon-color,
+      $bullet-color,
+      $arrow-color,
+      $bg-color
+    );
   }
 }
 
@@ -198,17 +210,23 @@
   $bg-color: null,
   $all-links: true
 ) {
-  $sel: '&:not(.here) ';
+  $sel: "&:not(.here) ";
 
   @if ($all-links == false) {
-    $sel: '&:not(.here) > ';
+    $sel: "&:not(.here) > ";
   }
 
   &.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here),
   #{$sel}.menu-link:hover:not(.disabled):not(.active):not(.here) {
     transition: $transition-link;
 
-    @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
+    @include menu-link-theme(
+      $title-color,
+      $icon-color,
+      $bullet-color,
+      $arrow-color,
+      $bg-color
+    );
   }
 }
 
@@ -221,16 +239,22 @@
   $bg-color: null,
   $all-links: true
 ) {
-  $sel: '';
+  $sel: "";
 
   @if ($all-links == false) {
-    $sel: '& > ';
+    $sel: "& > ";
   }
 
   #{$sel}.menu-link.active {
     transition: $transition-link;
 
-    @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
+    @include menu-link-theme(
+      $title-color,
+      $icon-color,
+      $bullet-color,
+      $arrow-color,
+      $bg-color
+    );
   }
 }
 
@@ -247,7 +271,13 @@
   &.show > .menu-link {
     transition: $transition-link;
 
-    @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
+    @include menu-link-theme(
+      $title-color,
+      $icon-color,
+      $bullet-color,
+      $arrow-color,
+      $bg-color
+    );
   }
 }
 
@@ -263,16 +293,22 @@
   &.here > .menu-link {
     transition: $transition-link;
 
-    @include menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color);
+    @include menu-link-theme(
+      $title-color,
+      $icon-color,
+      $bullet-color,
+      $arrow-color,
+      $bg-color
+    );
   }
 }
 
 // Set menu link default
 @mixin menu-link-default($all-links: true) {
-  $sel: '';
+  $sel: "";
 
   @if ($all-links == false) {
-    $sel: '& > ';
+    $sel: "& > ";
   }
 
   #{$sel}.menu-link {
@@ -282,10 +318,10 @@
 
 // Set menu link hover
 @mixin menu-link-hover($all-links: true) {
-  $sel: '&:not(.here) ';
+  $sel: "&:not(.here) ";
 
   @if ($all-links == false) {
-    $sel: '&:not(.here) > ';
+    $sel: "&:not(.here) > ";
   }
 
   &.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here),
@@ -298,10 +334,10 @@
 
 // Set menu link active
 @mixin menu-link-active($all-links: true) {
-  $sel: '';
+  $sel: "";
 
   @if ($all-links == false) {
-    $sel: '& > ';
+    $sel: "& > ";
   }
 
   #{$sel}.menu-link.active {

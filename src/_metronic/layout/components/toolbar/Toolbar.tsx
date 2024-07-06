@@ -128,6 +128,6 @@ const Toolbar = () => {
     //   </div>
     //   {/*end::body*/}
     // </div>
-  )
-}
-export { Toolbar }
+  );
+};
+export { Toolbar };

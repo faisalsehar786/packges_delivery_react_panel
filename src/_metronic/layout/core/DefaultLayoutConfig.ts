@@ -1,27 +1,27 @@
-import { ILayout } from './LayoutModels'
+import { ILayout } from "./LayoutModels";
 
 export const DefaultLayoutConfig: ILayout = {
   main: {
-    type: 'default',
+    type: "default",
     darkSkinEnabled: false,
-    primaryColor: '#7239EA',
+    primaryColor: "#7239EA",
     pageBgWhite: false,
   },
   loader: {
     display: false,
-    type: 'default', // Set default|spinner-message|spinner-logo to hide or show page loader
+    type: "default", // Set default|spinner-message|spinner-logo to hide or show page loader
   },
   scrolltop: {
     display: true,
   },
   header: {
     display: true, // Set true|false to show or hide Header
-    width: 'fluid', // Set fixed|fluid to change width type
+    width: "fluid", // Set fixed|fluid to change width type
     fixed: {
       desktop: true, // Set true|false to set fixed Header for desktop mode
       tabletAndMobile: true, // Set true|false to set fixed Header for tablet and mobile modes
     },
-    menuIcon: 'svg',
+    menuIcon: "svg",
     menu: true,
   },
   megaMenu: {
@@ -29,21 +29,21 @@ export const DefaultLayoutConfig: ILayout = {
   },
   aside: {
     fixed: true,
-    menuIcon: 'font',
+    menuIcon: "font",
   },
   content: {
-    width: 'fixed', // Set fixed|fluid to change width
-    layout: 'default',
+    width: "fixed", // Set fixed|fluid to change width
+    layout: "default",
   },
   toolbar: {
     display: false, // Display toolbar
   },
   footer: {
-    width: 'fixed', // Set fixed|fluid to change width type
+    width: "fixed", // Set fixed|fluid to change width type
   },
   pageTitle: {
     display: true,
     breadCrumbs: true,
     description: false,
   },
-}
+};

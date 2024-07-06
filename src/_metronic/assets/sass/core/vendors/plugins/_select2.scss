@@ -278,8 +278,9 @@ $select2-clear-right: $form-select-indicator-padding; //$form-select-padding-x +
         color: $component-active-color;
         transition: $transition-link;
 
-        [dir='rtl'] & {
-          background-position: center left $select2-dropdown-option-check-padding;
+        [dir="rtl"] & {
+          background-position: center left
+            $select2-dropdown-option-check-padding;
         }
       }
 
@@ -325,7 +326,7 @@ $select2-clear-right: $form-select-indicator-padding; //$form-select-padding-x +
     background-repeat: no-repeat;
     background-position: center;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       left: $select2-clear-right;
       right: auto;
     }

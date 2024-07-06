@@ -1,5 +1,5 @@
-import { FC, useContext, useEffect, useMemo, useState } from 'react'
-import { useQuery } from 'react-query'
+import { FC, useContext, useEffect, useMemo, useState } from "react";
+import { useQuery } from "react-query";
 import {
   PaginationState,
   QUERIES,
@@ -7,22 +7,22 @@ import {
   initialQueryResponse,
   initialQueryState,
   stringifyRequestQuery,
-} from '../../../../../../_metronic/helpers'
-import { useQueryRequest } from './QueryRequestProvider'
-import { User } from './_models'
-import { getUsers } from './_requests'
+} from "../../../../../../_metronic/helpers";
+import { useQueryRequest } from "./QueryRequestProvider";
+import { User } from "./_models";
+import { getUsers } from "./_requests";
 
-const QueryResponseContext = createResponseContext<User>(initialQueryResponse)
+const QueryResponseContext = createResponseContext<User>(initialQueryResponse);
 const QueryResponseProvider: FC = ({ children }) => {
-  const { state } = useQueryRequest()
-  const [query, setQuery] = useState<string>(stringifyRequestQuery(state))
-  const updatedQuery = useMemo(() => stringifyRequestQuery(state), [state])
+  const { state } = useQueryRequest();
+  const [query, setQuery] = useState<string>(stringifyRequestQuery(state));
+  const updatedQuery = useMemo(() => stringifyRequestQuery(state), [state]);
 
   useEffect(() => {
     if (query !== updatedQuery) {
-      setQuery(updatedQuery)
+      setQuery(updatedQuery);
     }
-  }, [updatedQuery])
+  }, [updatedQuery]);
 
   const {
     isFetching,
@@ -31,47 +31,49 @@ const QueryResponseProvider: FC = ({ children }) => {
   } = useQuery(
     `${QUERIES.USERS_LIST}-${query}`,
     () => {
-      return getUsers(query)
+      return getUsers(query);
     },
     { cacheTime: 0, keepPreviousData: true, refetchOnWindowFocus: false }
-  )
+  );
 
   return (
-    <QueryResponseContext.Provider value={{ isLoading: isFetching, refetch, response, query }}>
+    <QueryResponseContext.Provider
+      value={{ isLoading: isFetching, refetch, response, query }}
+    >
       {children}
     </QueryResponseContext.Provider>
-  )
-}
+  );
+};
 
-const useQueryResponse = () => useContext(QueryResponseContext)
+const useQueryResponse = () => useContext(QueryResponseContext);
 
 const useQueryResponseData = () => {
-  const { response } = useQueryResponse()
+  const { response } = useQueryResponse();
   if (!response) {
-    return []
+    return [];
   }
 
-  return response?.data || []
-}
+  return response?.data || [];
+};
 
 const useQueryResponsePagination = () => {
   const defaultPaginationState: PaginationState = {
     links: [],
     ...initialQueryState,
-  }
+  };
 
-  const { response } = useQueryResponse()
+  const { response } = useQueryResponse();
   if (!response || !response.payload || !response.payload.pagination) {
-    return defaultPaginationState
+    return defaultPaginationState;
   }
 
-  return response.payload.pagination
-}
+  return response.payload.pagination;
+};
 
 const useQueryResponseLoading = (): boolean => {
-  const { isLoading } = useQueryResponse()
-  return isLoading
-}
+  const { isLoading } = useQueryResponse();
+  return isLoading;
+};
 
 export {
   QueryResponseProvider,
@@ -79,4 +81,4 @@ export {
   useQueryResponseData,
   useQueryResponseLoading,
   useQueryResponsePagination,
-}
+};

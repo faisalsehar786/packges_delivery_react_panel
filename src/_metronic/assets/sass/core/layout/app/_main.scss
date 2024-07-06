@@ -13,7 +13,7 @@
   .app-main {
     @include app-layout-transition();
 
-    [data-kt-app-aside-sticky='true'] & {
+    [data-kt-app-aside-sticky="true"] & {
       margin-left: calc(
         var(--kt-app-aside-width) + var(--kt-app-aside-gap-start, 0px) +
           var(--kt-app-aside-gap-end, 0px)
@@ -21,11 +21,12 @@
     }
 
     // Aside Panel
-    [data-kt-app-aside-panel-sticky='true'] & {
+    [data-kt-app-aside-panel-sticky="true"] & {
       margin-left: calc(
         var(--kt-app-aside-width) + var(--kt-app-aside-gap-start, 0px) +
           var(--kt-app-aside-gap-end, 0px) + var(--kt-app-aside-panel-width) +
-          var(--kt-app-aside-panel-gap-start, 0px) + var(--kt-app-aside-panel-gap-end, 0px)
+          var(--kt-app-aside-panel-gap-start, 0px) +
+          var(--kt-app-aside-panel-gap-end, 0px)
       );
     }
   }

@@ -10,9 +10,8 @@ export default function AsDriverStats(props: any) {
   const [statsuser, setstatsuser] = useState<any>();
   const getOrgDetails = async () => {
     if (id) {
-      const { data } = await handleGetRequest(
-        `/user/detail_profile_v2?user_id=${id}&role=${role}`
-      )(setLoading);
+      const { data } = await handleGetRequest()(setLoading);
+      // `/user/detail_profile_v2?user_id=${id}&role=${role}`
       console.log(data);
       if (data) setstatsuser(data?.driver_stats);
     }

@@ -20,7 +20,10 @@
     }
 
     // Default color
-    @include scrollbar-color(get($scrollbar, color), get($scrollbar, hover-color));
+    @include scrollbar-color(
+      get($scrollbar, color),
+      get($scrollbar, hover-color)
+    );
   }
 }
 
