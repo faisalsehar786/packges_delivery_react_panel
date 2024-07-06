@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in package.json
-RUN yarn install
+RUN npm install
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
