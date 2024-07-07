@@ -5,7 +5,7 @@ import { numberSpacing } from "../../../../_metronic/helpers";
 import moment from "moment";
 export default function PaymentRecordTable(props: any) {
   const { setLoading } = useContext(LoadingContext);
-  const { id, order_no, title, fhData } = props;
+  const { id, order_no, title } = props;
   const [fetchData, setFetchData] = useState<any>();
   const getOrgDetails = async () => {
     if (id && order_no) {
@@ -103,7 +103,7 @@ export default function PaymentRecordTable(props: any) {
               {/*begin::Col*/}
               <div className="col-lg-8 fv-row">
                 <span className="fw-semibold text-gray-800 fs-6">
-                  {numberSpacing(item?.platfrom_share?.share_amount)}
+                  {numberSpacing(item?.platfrom_share_amount)}
                 </span>
               </div>
 

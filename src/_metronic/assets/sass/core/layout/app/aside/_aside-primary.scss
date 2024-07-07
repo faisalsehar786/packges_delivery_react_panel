@@ -25,7 +25,7 @@
   }
 
   // Vars
-  [data-kt-app-aside-stacked='true'] {
+  [data-kt-app-aside-stacked="true"] {
     --kt-app-aside-primary-width: #{$app-aside-primary-base-width};
 
     --kt-app-aside-primary-gap-start: #{$app-aside-primary-base-gap-start};
@@ -34,7 +34,7 @@
     --kt-app-aside-primary-gap-bottom: #{$app-aside-primary-base-gap-bottom};
   }
 
-  [data-kt-app-aside-primary-minimize='on'] {
+  [data-kt-app-aside-primary-minimize="on"] {
     --kt-app-aside-primary-width: #{$app-aside-primary-minimize-width};
 
     --kt-app-aside-primary-gap-start: #{$app-aside-primary-minimize-gap-start};
@@ -43,7 +43,7 @@
     --kt-app-aside-primary-gap-bottom: #{$app-aside-primary-minimize-gap-bottom};
   }
 
-  [data-kt-app-aside-primary-collapse='on'] {
+  [data-kt-app-aside-primary-collapse="on"] {
     --kt-app-aside-primary-width-actual: #{$app-aside-primary-base-width};
     --kt-app-aside-primary-width: 0px;
   }
@@ -52,13 +52,13 @@
   .app-aside-primary {
     width: var(--kt-app-aside-primary-width);
 
-    [data-kt-app-aside-primary-collapse='on'] & {
+    [data-kt-app-aside-primary-collapse="on"] & {
       @include app-layout-transition();
       width: var(--kt-app-aside-primary-width-actual);
       margin-left: calc(-1 * var(--kt-app-aside-primary-width-actual));
     }
 
-    [data-kt-app-aside-primary-minimize='on'] & {
+    [data-kt-app-aside-primary-minimize="on"] & {
       @include app-layout-transition();
       @include attr(background-color, $app-aside-primary-minimize-bg-color);
       @include attr(box-shadow, $app-aside-primary-minimize-box-shadow);
@@ -71,7 +71,7 @@
     }
 
     // Hover minimized
-    [data-kt-app-aside-primary-hoverable='true'][data-kt-app-aside-primary-minimize='on']
+    [data-kt-app-aside-primary-hoverable="true"][data-kt-app-aside-primary-minimize="on"]
       &:hover:not(.animating) {
       @include app-layout-transition();
       width: var(--kt-app-aside-primary-width-actual);
@@ -82,20 +82,20 @@
   // Integration
   .app-aside-primary {
     // Header
-    [data-kt-app-aside-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-aside-primary-below-header='true']
+    [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"][data-kt-app-aside-primary-below-header="true"]
       & {
       top: var(--kt-app-header-height);
     }
 
     // Toolbar
-    [data-kt-app-aside-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true'][data-kt-app-aside-primary-below-toolbar='true']
+    [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"][data-kt-app-toolbar-fixed="true"][data-kt-app-aside-primary-below-toolbar="true"]
       & {
       top: calc(var(--kt-app-header-height) + var(--kt-app-toolbar-height, 0));
     }
   }
 
   // Utilities
-  [data-kt-app-aside-primary-minimize='on'] {
+  [data-kt-app-aside-primary-minimize="on"] {
     .app-aside-primary-minimize-d-none {
       display: none !important;
     }
@@ -105,7 +105,7 @@
     }
   }
 
-  [data-kt-app-aside-primary-collapse='on'] {
+  [data-kt-app-aside-primary-collapse="on"] {
     .app-aside-primary-collapse-d-none {
       display: none !important;
     }
@@ -132,7 +132,7 @@
   }
 
   // Vars
-  [data-kt-app-aside-stacked='true'] {
+  [data-kt-app-aside-stacked="true"] {
     --kt-app-aside-primary-width: #{$app-aside-primary-base-width-mobile};
     --kt-app-aside-primary-width-actual: #{$app-aside-primary-base-width-mobile};
 
@@ -142,7 +142,7 @@
     --kt-app-aside-primary-gap-bottom: #{$app-aside-primary-base-gap-bottom-mobile};
   }
 
-  [data-kt-app-aside-primary-minimize-mobile='on'] {
+  [data-kt-app-aside-primary-minimize-mobile="on"] {
     --kt-app-aside-primary-width: #{$app-aside-primary-minimize-width-mobile};
 
     --kt-app-aside-primary-gap-start: #{$app-aside-primary-minimize-gap-start-mobile};
@@ -151,7 +151,7 @@
     --kt-app-aside-primary-gap-bottom: #{$app-aside-primary-minimize-gap-bottom-mobile};
   }
 
-  [data-kt-app-aside-primary-collapse-mobile='on'] {
+  [data-kt-app-aside-primary-collapse-mobile="on"] {
     --kt-app-aside-primary-width-actual: #{$app-aside-primary-base-width-mobile};
     --kt-app-aside-primary-width: 0px;
   }
@@ -160,34 +160,49 @@
   .app-aside-primary {
     width: var(--kt-app-aside-primary-width);
 
-    [data-kt-app-aside-primary-collapse-mobile='on'] & {
+    [data-kt-app-aside-primary-collapse-mobile="on"] & {
       @include app-layout-transition();
       width: var(--kt-app-aside-primary-width-actual);
       margin-left: calc(-1 * var(--kt-app-aside-primary-width-actual));
     }
 
-    [data-kt-app-aside-primary-minimize-mobile='on'] & {
+    [data-kt-app-aside-primary-minimize-mobile="on"] & {
       @include app-layout-transition();
-      @include attr(background-color, $app-aside-primary-minimize-bg-color-mobile);
+      @include attr(
+        background-color,
+        $app-aside-primary-minimize-bg-color-mobile
+      );
       @include attr(box-shadow, $app-aside-primary-minimize-box-shadow-mobile);
-      @include attr(border-left, $app-aside-primary-minimize-border-start-mobile);
-      @include attr(border-right, $app-aside-primary-minimize-border-end-mobile);
+      @include attr(
+        border-left,
+        $app-aside-primary-minimize-border-start-mobile
+      );
+      @include attr(
+        border-right,
+        $app-aside-primary-minimize-border-end-mobile
+      );
       @include attr(margin-left, $app-aside-primary-minimize-gap-start-mobile);
       @include attr(margin-right, $app-aside-primary-minimize-gap-end-mobile);
       @include attr(margin-top, $app-aside-primary-minimize-gap-top-mobile);
-      @include attr(margin-bottom, $app-aside-primary-minimize-gap-bottom-mobile);
+      @include attr(
+        margin-bottom,
+        $app-aside-primary-minimize-gap-bottom-mobile
+      );
     }
 
-    [data-kt-app-aside-primary-hoverable-mobile='true'][data-kt-app-aside-primary-minimize-mobile='on']
+    [data-kt-app-aside-primary-hoverable-mobile="true"][data-kt-app-aside-primary-minimize-mobile="on"]
       &:hover:not(.animating) {
       @include app-layout-transition();
       width: var(--kt-app-aside-primary-width-actual);
-      @include attr(box-shadow, $app-aside-primary-minimize-hover-box-shadow-mobile);
+      @include attr(
+        box-shadow,
+        $app-aside-primary-minimize-hover-box-shadow-mobile
+      );
     }
   }
 
   // Utilities
-  [data-kt-app-aside-primary-minimize-mobile='on'] {
+  [data-kt-app-aside-primary-minimize-mobile="on"] {
     .app-aside-primary-minimize-mobile-d-none {
       display: none !important;
     }
@@ -197,7 +212,7 @@
     }
   }
 
-  [data-kt-app-aside-primary-collapse-mobile='on'] {
+  [data-kt-app-aside-primary-collapse-mobile="on"] {
     .app-aside-primary-collapse-mobile-d-none {
       display: none !important;
     }

@@ -121,7 +121,7 @@ export default function TenderMain() {
               chartHeight="60px"
               title="Sendinger klare for betaling"
               // description='totalt fra alle organisasjoner'
-              numbertext={stats?.order_awaiting_for_payment}
+              numbertext={stats?.customer_order_awaiting_for_payment}
             />
           </div>
           <div className="col-xl-3 ">
@@ -131,7 +131,7 @@ export default function TenderMain() {
               chartHeight="60px"
               title="Aktive sendinger"
               // description='Aktive sendinger'
-              numbertext={stats?.order_processing}
+              numbertext={stats?.customer_order_processing}
             />
           </div>
           <div className="col-xl-3 ">
@@ -141,7 +141,7 @@ export default function TenderMain() {
               chartHeight="60px"
               title="sendinger Fullførte"
               // description='sendinger Fullførte '
-              numbertext={stats?.order_completed}
+              numbertext={stats?.customer_order_completed}
             />
           </div>
         </div>

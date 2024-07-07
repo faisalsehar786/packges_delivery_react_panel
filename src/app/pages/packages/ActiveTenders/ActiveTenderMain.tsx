@@ -23,10 +23,10 @@ export default function ActiveTenderMain() {
     // { label: "Publiserte", val: "Publiserte" },
 
     { label: "Aktive", val: "processing" },
-    { label: "Betalt", val: "payment_done" },
-    { label: "Ikke betalt", val: "awaiting_for_payment" },
-    { label: "Fullførte", val: "completed" },
-    { label: "Kansellerte", val: "cancel" },
+    // { label: "Betalt", val: "payment_done" },
+    // { label: "Ikke betalt", val: "awaiting_for_payment" },
+    // { label: "Fullførte", val: "completed" },
+    // { label: "Kansellerte", val: "cancel" },
   ];
   useEffect(() => {
     getStats();
@@ -52,7 +52,7 @@ export default function ActiveTenderMain() {
               chartHeight="60px"
               title="Antall leveringer"
               // description='totalt på HYHM plattformen'
-              numbertext={stats?.total}
+              numbertext={stats?.driver_assigned_tender}
             />
           </div>
           {/* Aktive antall organisasjoner */}
@@ -63,7 +63,7 @@ export default function ActiveTenderMain() {
               chartHeight="60px"
               title="Aktive leveringer"
               // description='totalt på HYHM plattformen'
-              numbertext={stats?.order_processing}
+              numbertext={stats?.driver_active_tender}
             />
           </div>
 
@@ -74,7 +74,7 @@ export default function ActiveTenderMain() {
               chartHeight="60px"
               title="Leveringer klare for betaling"
               // description='totalt fra alle organisasjoner'
-              numbertext={stats?.order_awaiting_for_payment}
+              numbertext={stats?.driver_order_awaiting_for_payment}
             />
           </div>
           <div className="col-xl-3 ">
@@ -84,7 +84,7 @@ export default function ActiveTenderMain() {
               chartHeight="60px"
               title="Betalte leveringer"
               // description='Fra alle customer'
-              numbertext={stats?.order_payment_done}
+              numbertext={stats?.driver_order_payment_done}
             />
           </div>
         </div>

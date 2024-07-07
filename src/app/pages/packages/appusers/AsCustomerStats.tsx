@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { handleGetRequest } from "../../../services";
 import LoadingContext from "../../../../_metronic/layout/core/Loading";
-import { numberSpacing } from "../../../../_metronic/helpers";
-import moment from "moment";
 import { MixedWidget13 } from "../../../../_metronic/partials/widgets";
 export default function AsCustomerStats(props: any) {
   const { setLoading } = useContext(LoadingContext);
-  const { id, title, role } = props;
+  const { id, title } = props;
   const [statsuser, setstatsuser] = useState<any>();
   const getOrgDetails = async () => {
     if (id) {
       const { data } = await handleGetRequest(
-        `/user/detail_profile?user_id=${id}&role=${role}`
+        `/admin/detail_profile?user_id=${id}`
       )(setLoading);
 
-      if (data) setstatsuser(data?.customer_stats);
+      if (data) setstatsuser(data?.stats);
     }
   };
   useEffect(() => {
@@ -40,6 +38,16 @@ export default function AsCustomerStats(props: any) {
         <div className="card-body p-9">
           <div className="row">
             {/* begin::Col */}
+            <div className="col-xl-12">
+              <MixedWidget13
+                className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
+                backGroundColor="#ffff"
+                chartHeight="60px"
+                title="Totalt betalte betalinger"
+                // description='Fra alle customer'
+                numbertext={statsuser?.customer_total_payment_paid}
+              />
+            </div>
             <div className="col-xl-6 ">
               <MixedWidget13
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
@@ -58,7 +66,7 @@ export default function AsCustomerStats(props: any) {
                 chartHeight="60px"
                 title="Aktive"
                 // description='totalt på HYHM plattformen'
-                numbertext={statsuser?.tender_accepted}
+                numbertext={statsuser?.customer_active_tender}
               />
             </div>
           </div>
@@ -70,7 +78,7 @@ export default function AsCustomerStats(props: any) {
                 chartHeight="60px"
                 title="Venter betaling "
                 // description='totalt fra alle organisasjoner'
-                numbertext={statsuser?.order_awaiting_for_payment}
+                numbertext={statsuser?.customer_order_awaiting_for_payment}
               />
             </div>
             <div className="col-xl-6">
@@ -78,10 +86,10 @@ export default function AsCustomerStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
-                title="Kansellert
+                title="Betaling gjennomført
   "
                 // description='Fra alle customer'
-                numbertext={statsuser?.order_cancel}
+                numbertext={statsuser?.customer_order_payment_done}
               />
             </div>
           </div>
@@ -91,9 +99,22 @@ export default function AsCustomerStats(props: any) {
                 className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
                 backGroundColor="#ffff"
                 chartHeight="60px"
+                title="Behandling "
+                // description='Fra alle customer'
+                numbertext={statsuser?.customer_order_processing}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-xl-12">
+              <MixedWidget13
+                className="card-xl-stretch mb-xl-10 card_borderC min-h-240px"
+                backGroundColor="#ffff"
+                chartHeight="60px"
                 title="Kansellert "
                 // description='Fra alle customer'
-                numbertext={statsuser?.order_completed}
+                numbertext={statsuser?.customer_order_completed}
               />
             </div>
           </div>

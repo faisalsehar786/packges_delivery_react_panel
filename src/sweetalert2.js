@@ -1,5 +1,5 @@
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
-const SweetAlert2 = Swal
+const SweetAlert2 = Swal;
 
-export default SweetAlert2
+export default SweetAlert2;

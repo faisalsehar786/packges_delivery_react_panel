@@ -4,7 +4,6 @@ import BreadcrumbsContext from "../../../../_metronic/layout/core/Breadcrumbs";
 import LoadingContext from "../../../../_metronic/layout/core/Loading";
 import { MixedWidget13 } from "../../../../_metronic/partials/widgets/mixed/MixedWidget13";
 import { handleGetRequest } from "../../../services";
-import { KTSVG } from "../../../../_metronic/helpers";
 
 export default function OversiktMain() {
   const [stats, setStats] = useState<any>();
@@ -65,7 +64,7 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Antall app brukere"
           // description='Fra alle customer'
-          numbertext={statsApp?.total}
+          numbertext={statsApp?.totalUsers}
         />
 
         <MixedWidget13
@@ -74,7 +73,7 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Antall sjåfører"
           // description='Til alle organisasjoner'
-          numbertext={statsApp?.user_type_driver_count}
+          numbertext={statsApp?.totalUsersDriver}
         />
 
         <MixedWidget13
@@ -83,10 +82,47 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Antall sluttbrukere"
           // description='Fra alle customer'
-          numbertext={statsApp?.user_type_customer_count}
+          numbertext={statsApp?.totalUsersCustomer}
         />
       </div>
+      <div className="row overview gap-2 mt-4">
+        {/* First row */}
 
+        <MixedWidget13
+          className="card-xl-stretch  card_borderC col"
+          backGroundColor="#ffff"
+          chartHeight="60px"
+          title="Totalt betalt av kunde"
+          // description='Til alle organisasjoner'
+          numbertext={stats?.customer_total_payment_paid}
+        />
+        <MixedWidget13
+          className="card-xl-stretch  card_borderC col"
+          backGroundColor="#ffff"
+          chartHeight="60px"
+          title="Sum utestående betalinger fra kunde"
+          // description='Til alle organisasjoner'
+          numbertext={stats?.customer_total_payment_unpaid}
+        />
+
+        <MixedWidget13
+          className="card-xl-stretch  card_borderC col"
+          backGroundColor="#ffff"
+          chartHeight="60px"
+          title="Sjåfør Inntjening "
+          // description='Til HmHy'
+          numbertext={stats?.driver_total_earning}
+        />
+
+        <MixedWidget13
+          className="card-xl-stretch  card_borderC col"
+          backGroundColor="#ffff"
+          chartHeight="60px"
+          title="HMHY Inntjening"
+          // description='Til HmHy'
+          numbertext={stats?.platform_total_earning}
+        />
+      </div>
       <div className="row overview gap-2 mt-4">
         {/* First row */}
         <div className="col-lg-5">
@@ -106,7 +142,7 @@ export default function OversiktMain() {
           chartHeight="60px"
           title=" Betalte sendinger"
           // description='Til alle organisasjoner'
-          numbertext={stats?.order_payment_done}
+          numbertext={stats?.customer_order_payment_done}
         />
 
         <MixedWidget13
@@ -115,7 +151,7 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Sendinger klare for betaling "
           // description='Til HmHy'
-          numbertext={stats?.order_awaiting_for_payment}
+          numbertext={stats?.customer_order_awaiting_for_payment}
         />
       </div>
       <div className="row overview gap-2 mt-4">
@@ -125,7 +161,16 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Aktive sendinger"
           // description='Til HmHy'
-          numbertext={stats?.order_processing}
+          numbertext={stats?.customer_order_processing}
+        />
+
+        <MixedWidget13
+          className="card-xl-stretch  card_borderC col"
+          backGroundColor="#ffff"
+          chartHeight="60px"
+          title="Venter på godkjenning sendinger"
+          // description='Til HmHy'
+          numbertext={stats?.customer_awaiting_for_approval}
         />
         <MixedWidget13
           className="card-xl-stretch  card_borderC col"
@@ -133,7 +178,7 @@ export default function OversiktMain() {
           chartHeight="60px"
           title="Fullførte sendinger"
           // description='Til HmHy'
-          numbertext={stats?.order_completed}
+          numbertext={stats?.customer_order_completed}
         />
       </div>
     </>

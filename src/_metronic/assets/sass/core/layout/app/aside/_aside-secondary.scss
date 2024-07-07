@@ -25,15 +25,17 @@
   }
 
   // Vars
-  [data-kt-app-aside-stacked='true'] {
+  [data-kt-app-aside-stacked="true"] {
     --kt-app-aside-secondary-width: calc(
       #{$app-aside-base-width} - #{$app-aside-primary-base-width} - #{$app-aside-primary-base-gap-start} -
-        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} - #{$app-aside-secondary-base-gap-end}
+        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} -
+        #{$app-aside-secondary-base-gap-end}
     );
 
     --kt-app-aside-secondary-width-actual: calc(
       #{$app-aside-base-width} - #{$app-aside-primary-base-width} - #{$app-aside-primary-base-gap-start} -
-        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} - #{$app-aside-secondary-base-gap-end}
+        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} -
+        #{$app-aside-secondary-base-gap-end}
     );
 
     --kt-app-aside-secondary-gap-start: #{$app-aside-secondary-base-gap-start};
@@ -42,7 +44,7 @@
     --kt-app-aside-secondary-gap-bottom: #{$app-aside-secondary-base-gap-bottom};
   }
 
-  [data-kt-app-aside-secondary-minimize='on'] {
+  [data-kt-app-aside-secondary-minimize="on"] {
     --kt-app-aside-secondary-width: #{$app-aside-secondary-minimize-width};
 
     --kt-app-aside-secondary-gap-start: #{$app-aside-secondary-minimize-gap-start};
@@ -51,10 +53,11 @@
     --kt-app-aside-secondary-gap-bottom: #{$app-aside-secondary-minimize-gap-bottom};
   }
 
-  [data-kt-app-aside-secondary-collapse='on'] {
+  [data-kt-app-aside-secondary-collapse="on"] {
     --kt-app-aside-secondary-width-actual: calc(
       #{$app-aside-base-width} - #{$app-aside-primary-base-width} - #{$app-aside-primary-base-gap-start} -
-        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} - #{$app-aside-secondary-base-gap-end}
+        #{$app-aside-primary-base-gap-end} - #{$app-aside-secondary-base-gap-start} -
+        #{$app-aside-secondary-base-gap-end}
     );
 
     --kt-app-aside-secondary-width: 0px;
@@ -64,25 +67,31 @@
   .app-aside-secondary {
     width: var(--kt-app-aside-secondary-width);
 
-    [data-kt-app-aside-secondary-collapse='on'] & {
+    [data-kt-app-aside-secondary-collapse="on"] & {
       @include app-layout-transition();
       width: var(--kt-app-aside-secondary-width-actual);
       margin-left: calc(-1 * var(--kt-app-aside-secondary-width-actual));
     }
 
-    [data-kt-app-aside-secondary-minimize='on'] & {
+    [data-kt-app-aside-secondary-minimize="on"] & {
       @include app-layout-transition();
       @include attr(background-color, $app-aside-secondary-minimize-bg-color);
       @include attr(box-shadow, $app-aside-secondary-minimize-box-shadow);
       @include attr(border-left, $app-aside-secondary-minimize-border-start);
       @include attr(border-right, $app-aside-secondary-minimize-border-end);
-      @include attr(margin-left, $app-aside-secondary-minimize-gap-start-mobile);
+      @include attr(
+        margin-left,
+        $app-aside-secondary-minimize-gap-start-mobile
+      );
       @include attr(margin-right, $app-aside-secondary-minimize-gap-end-mobile);
       @include attr(margin-top, $app-aside-secondary-minimize-gap-top-mobile);
-      @include attr(margin-bottom, $app-aside-secondary-minimize-gap-bottom-mobile);
+      @include attr(
+        margin-bottom,
+        $app-aside-secondary-minimize-gap-bottom-mobile
+      );
     }
 
-    [data-kt-app-aside-secondary-hoverable='true'][data-kt-app-aside-secondary-minimize='on']
+    [data-kt-app-aside-secondary-hoverable="true"][data-kt-app-aside-secondary-minimize="on"]
       &:hover:not(.animating) {
       @include app-layout-transition();
       width: var(--kt-app-aside-secondary-width-actual);
@@ -93,20 +102,20 @@
   // Integration
   .app-aside-secondary {
     // Header
-    [data-kt-app-aside-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-aside-secondary-below-header='true']
+    [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"][data-kt-app-aside-secondary-below-header="true"]
       & {
       top: var(--kt-app-header-height);
     }
 
     // Toolbar
-    [data-kt-app-aside-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true'][data-kt-app-aside-secondary-below-toolbar='true']
+    [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"][data-kt-app-toolbar-fixed="true"][data-kt-app-aside-secondary-below-toolbar="true"]
       & {
       top: calc(var(--kt-app-header-height) + var(--kt-app-toolbar-height, 0));
     }
   }
 
   // Utilities
-  [data-kt-app-aside-secondary-minimize='on'] {
+  [data-kt-app-aside-secondary-minimize="on"] {
     .app-aside-secondary-minimize-d-none {
       display: none !important;
     }
@@ -116,7 +125,7 @@
     }
   }
 
-  [data-kt-app-aside-secondary-collapse='on'] {
+  [data-kt-app-aside-secondary-collapse="on"] {
     .app-aside-secondary-collapse-d-none {
       display: none !important;
     }
@@ -143,15 +152,17 @@
   }
 
   // Vars
-  [data-kt-app-aside-stacked='true'] {
+  [data-kt-app-aside-stacked="true"] {
     --kt-app-aside-secondary-width: calc(
-      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} - #{$app-aside-primary-base-gap-start-mobile} -
-        #{$app-aside-primary-base-gap-end-mobile} - #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
+      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} -
+        #{$app-aside-primary-base-gap-start-mobile} - #{$app-aside-primary-base-gap-end-mobile} -
+        #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
     );
 
     --kt-app-aside-secondary-width-actual: calc(
-      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} - #{$app-aside-primary-base-gap-start-mobile} -
-        #{$app-aside-primary-base-gap-end-mobile} - #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
+      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} -
+        #{$app-aside-primary-base-gap-start-mobile} - #{$app-aside-primary-base-gap-end-mobile} -
+        #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
     );
 
     --kt-app-aside-secondary-gap-start: #{$app-aside-secondary-base-gap-start-mobile};
@@ -160,7 +171,7 @@
     --kt-app-aside-secondary-gap-bottom: #{$app-aside-secondary-base-gap-bottom-mobile};
   }
 
-  [data-kt-app-aside-secondary-minimize-mobile='on'] {
+  [data-kt-app-aside-secondary-minimize-mobile="on"] {
     --kt-app-aside-secondary-width: #{$app-aside-secondary-minimize-width-mobile};
 
     --kt-app-aside-secondary-gap-start: #{$app-aside-secondary-minimize-gap-start-mobile};
@@ -169,10 +180,11 @@
     --kt-app-aside-secondary-gap-bottom: #{$app-aside-secondary-minimize-gap-bottom-mobile};
   }
 
-  [data-kt-app-aside-secondary-collapse-mobile='on'] {
+  [data-kt-app-aside-secondary-collapse-mobile="on"] {
     --kt-app-aside-secondary-width-actual: calc(
-      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} - #{$app-aside-primary-base-gap-start-mobile} -
-        #{$app-aside-primary-base-gap-end-mobile} - #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
+      #{$app-aside-base-width-mobile} - #{$app-aside-primary-base-width-mobile} -
+        #{$app-aside-primary-base-gap-start-mobile} - #{$app-aside-primary-base-gap-end-mobile} -
+        #{$app-aside-secondary-base-gap-start-mobile} - #{$app-aside-secondary-base-gap-end-mobile}
     );
 
     --kt-app-aside-secondary-width: 0px;
@@ -182,34 +194,55 @@
   .app-aside-secondary {
     width: var(--kt-app-aside-secondary-width);
 
-    [data-kt-app-aside-secondary-collapse-mobile='on'] & {
+    [data-kt-app-aside-secondary-collapse-mobile="on"] & {
       @include app-layout-transition();
       width: var(--kt-app-aside-secondary-width-actual);
       margin-left: calc(-1 * var(--kt-app-aside-secondary-width-actual));
     }
 
-    [data-kt-app-aside-secondary-minimize-mobile='on'] & {
+    [data-kt-app-aside-secondary-minimize-mobile="on"] & {
       @include app-layout-transition();
-      @include attr(background-color, $app-aside-secondary-minimize-bg-color-mobile);
-      @include attr(box-shadow, $app-aside-secondary-minimize-box-shadow-mobile);
-      @include attr(border-left, $app-aside-secondary-minimize-border-start-mobile);
-      @include attr(border-right, $app-aside-secondary-minimize-border-end-mobile);
-      @include attr(margin-left, $app-aside-secondary-minimize-gap-start-mobile);
+      @include attr(
+        background-color,
+        $app-aside-secondary-minimize-bg-color-mobile
+      );
+      @include attr(
+        box-shadow,
+        $app-aside-secondary-minimize-box-shadow-mobile
+      );
+      @include attr(
+        border-left,
+        $app-aside-secondary-minimize-border-start-mobile
+      );
+      @include attr(
+        border-right,
+        $app-aside-secondary-minimize-border-end-mobile
+      );
+      @include attr(
+        margin-left,
+        $app-aside-secondary-minimize-gap-start-mobile
+      );
       @include attr(margin-right, $app-aside-secondary-minimize-gap-end-mobile);
       @include attr(margin-top, $app-aside-secondary-minimize-gap-top-mobile);
-      @include attr(margin-bottom, $app-aside-secondary-minimize-gap-bottom-mobile);
+      @include attr(
+        margin-bottom,
+        $app-aside-secondary-minimize-gap-bottom-mobile
+      );
     }
 
-    [data-kt-app-aside-secondary-hoverable-mobile='true'][data-kt-app-aside-secondary-minimize-mobile='on']
+    [data-kt-app-aside-secondary-hoverable-mobile="true"][data-kt-app-aside-secondary-minimize-mobile="on"]
       &:hover:not(.animating) {
       @include app-layout-transition();
       width: var(--kt-app-aside-secondary-width-actual);
-      @include attr(box-shadow, $app-aside-secondary-minimize-hover-box-shadow-mobile);
+      @include attr(
+        box-shadow,
+        $app-aside-secondary-minimize-hover-box-shadow-mobile
+      );
     }
   }
 
   // Utilities
-  [data-kt-app-aside-secondary-minimize-mobile='on'] {
+  [data-kt-app-aside-secondary-minimize-mobile="on"] {
     .app-aside-secondary-minimize-mobile-d-none {
       display: none !important;
     }
@@ -219,7 +252,7 @@
     }
   }
 
-  [data-kt-app-aside-secondary-collapse='on'] {
+  [data-kt-app-aside-secondary-collapse="on"] {
     .app-aside-secondary-collapse-mobile-d-none {
       display: none !important;
     }
