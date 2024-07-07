@@ -40,7 +40,10 @@ const ActiveTenderSearch = (props: any) => {
               search,
               page: pageNo,
               limit: pageSize,
+              withOrCond: true,
+              is_for_driver: true,
               order_status: status ? status : "processing",
+              status: "accepted",
             },
           }
         )(() => {});

@@ -93,6 +93,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
             "btn-light-dark": goal?.order?.order_status === "payment_done",
             "btn-light-danger": goal?.order?.order_status === "cancel",
             "btn-light-waring": goal?.order?.order_status === "processing",
+            "btn-light-info": goal?.order?.order_status === "accepted",
           })}
         >
           {goal?.order?.order_status === "awaiting_for_payment" &&
@@ -101,6 +102,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
           {goal?.order?.order_status === "payment_done" && "Betalte"}
           {goal?.order?.order_status === "cancel" && "Avbrutt"}
           {goal?.order?.order_status === "processing" && "Aktive"}
+          {goal?.order?.order_status === "accepted" && "Aktive"}
         </span>
       </td>
     </tr>

@@ -93,6 +93,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
             "btn-light-dark": goal?.order?.order_status === "payment_done",
             "btn-light-danger": goal?.order?.order_status === "cancel",
             "btn-light-waring": goal?.order?.order_status === "processing",
+            "btn-light-info": goal?.order?.order_status === "accepted",
           })}
         >
           {goal?.order?.order_status === "awaiting_for_payment" &&
@@ -101,6 +102,7 @@ const TableRow: React.FC<any> = ({ goal, logo }) => {
           {goal?.order?.order_status === "payment_done" && "Betalte"}
           {goal?.order?.order_status === "cancel" && "Avbrutt"}
           {goal?.order?.order_status === "processing" && "Aktive"}
+          {goal?.order?.order_status === "accepted" && "Aktive"}
         </span>
       </td>
     </tr>
@@ -153,16 +155,18 @@ const ActiveTenderTable: React.FC<any> = ({ status, search, hide, logo }) => {
         order,
 
         withOrCond: "yes",
+        is_for_driver: true,
         order_status: status
           ? findStatus(orderStatusCheck, status)
             ? findStatus(orderStatusCheck, status)?.val
             : "processing"
           : "processing",
-        // status: status
-        //   ? findStatus(statusCheck, status)
-        //     ? findStatus(statusCheck, status)?.val
-        //     : "all"
-        //   : "accepted",
+
+        status: status
+          ? findStatus(statusCheck, status)
+            ? findStatus(statusCheck, status)?.val
+            : "all"
+          : "accepted",
       };
 
       try {

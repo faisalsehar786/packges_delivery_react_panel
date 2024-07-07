@@ -403,66 +403,62 @@ const UpdateUserDetails: React.FC = () => {
                 </div>
               </div>
 
-              {currentUser?.user._id === id ? (
-                <>
-                  <div className="row mb-6">
-                    <label className="col-lg-4 col-form-label fw-bold fs-6">
-                      <span className="">Passord</span>
-                    </label>
+              <>
+                <div className="row mb-6">
+                  <label className="col-lg-4 col-form-label fw-bold fs-6">
+                    <span className="">Passord</span>
+                  </label>
 
-                    <div className="col-lg-8 fv-row">
-                      <input
-                        type="text"
-                        disabled={passread}
-                        className={clsx(
-                          "form-control form-control-lg form-control-solid",
-                          {
-                            "is-invalid":
-                              formik.touched.password && formik.errors.password,
-                          }
-                        )}
-                        placeholder="Passord"
-                        {...formik.getFieldProps("password")}
-                      />
-                    </div>
+                  <div className="col-lg-8 fv-row">
+                    <input
+                      type="text"
+                      disabled={passread}
+                      className={clsx(
+                        "form-control form-control-lg form-control-solid",
+                        {
+                          "is-invalid":
+                            formik.touched.password && formik.errors.password,
+                        }
+                      )}
+                      placeholder="Passord"
+                      {...formik.getFieldProps("password")}
+                    />
                   </div>
+                </div>
 
-                  <div className="row mb-6">
-                    <label className="col-lg-4 col-form-label fw-bold fs-6">
-                      <span className="">Bekreft passord</span>
-                    </label>
+                <div className="row mb-6">
+                  <label className="col-lg-4 col-form-label fw-bold fs-6">
+                    <span className="">Bekreft passord</span>
+                  </label>
 
-                    <div className="col-lg-8 fv-row">
-                      <input
-                        type="text"
-                        className={clsx(
-                          "form-control form-control-lg form-control-solid",
-                          {
-                            "is-invalid":
-                              formik.touched.confirm_password &&
-                              formik.errors.confirm_password,
-                          }
-                        )}
-                        disabled={passread}
-                        placeholder="Bekreft passord"
-                        {...formik.getFieldProps("confirm_password")}
-                      />
-                      <i
-                        className="bi bi-pencil-square text-info"
-                        style={{
-                          position: "relative",
-                          cursor: "pointer",
-                          top: "-97px",
-                          left: "97%",
-                        }}
-                        onClick={() => setpassread(!passread)}
-                      />
-                    </div>
+                  <div className="col-lg-8 fv-row">
+                    <input
+                      type="text"
+                      className={clsx(
+                        "form-control form-control-lg form-control-solid",
+                        {
+                          "is-invalid":
+                            formik.touched.confirm_password &&
+                            formik.errors.confirm_password,
+                        }
+                      )}
+                      disabled={passread}
+                      placeholder="Bekreft passord"
+                      {...formik.getFieldProps("confirm_password")}
+                    />
+                    <i
+                      className="bi bi-pencil-square text-info"
+                      style={{
+                        position: "relative",
+                        cursor: "pointer",
+                        top: "-97px",
+                        left: "97%",
+                      }}
+                      onClick={() => setpassread(!passread)}
+                    />
                   </div>
-                </>
-              ) : (
-                ""
-              )}
+                </div>
+              </>
             </div>
 
             <div className="card-footer d-flex justify-content-end py-6 px-9">

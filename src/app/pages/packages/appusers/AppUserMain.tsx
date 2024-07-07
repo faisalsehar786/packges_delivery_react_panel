@@ -6,10 +6,8 @@ import LoadingContext from "../../../../_metronic/layout/core/Loading";
 import { MixedWidget13 } from "../../../../_metronic/partials/widgets/mixed/MixedWidget13";
 import AppUserTable from "./AppUserTable";
 import AppUserSearch from "./AppUserSearch";
-import { Link } from "react-router-dom";
 
 export default function AppUserMain() {
-  const [stats, setStats] = useState<any>();
   const [role, setRole] = useState<any>("all");
   const [statsuser, setStatsUser] = useState<any>();
   const { setLoading } = useContext(LoadingContext);
@@ -21,20 +19,11 @@ export default function AppUserMain() {
     setStatsUser(data);
   };
 
-  const getStats = async () => {
-    const { data } = await handleGetRequest("/admin/get_admin_stats")(
-      setLoading
-    );
-    setStats(data);
-  };
-
   useEffect(() => {
-    getStats();
     getStatsUserApp();
 
     return () => {
       setLoading(false);
-      setStats(undefined);
     };
   }, []);
 
@@ -95,7 +84,7 @@ export default function AppUserMain() {
               chartHeight="60px"
               title="Antall app brukere "
               // description='totalt på HYHM plattformen'
-              numbertext={statsuser?.total}
+              numbertext={statsuser?.totalUsers}
             />
           </div>
           {/* Aktive antall organisasjoner */}
@@ -106,7 +95,7 @@ export default function AppUserMain() {
               chartHeight="60px"
               title="Antall sjåfører"
               // description='totalt på HYHM plattformen'
-              numbertext={statsuser?.user_type_driver_count}
+              numbertext={statsuser?.totalUsersDriver}
             />
           </div>
 
@@ -117,7 +106,7 @@ export default function AppUserMain() {
               chartHeight="60px"
               title="Antall sluttbrukere"
               // description='totalt fra alle organisasjoner'
-              numbertext={statsuser?.user_type_customer_count}
+              numbertext={statsuser?.totalUsersCustomer}
             />
           </div>
           {/* <div className="col-xl-3 ">

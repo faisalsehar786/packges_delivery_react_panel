@@ -619,7 +619,7 @@ const AppUserEdit: React.FC = () => {
           </form>
         </div>
       </div>
-      {/* <div className="row">
+      <div className="row">
         <div className="col-lg-6">
           <AsCustomerStats
             title={`Bruker stats`}
@@ -634,7 +634,7 @@ const AppUserEdit: React.FC = () => {
             id={id}
           ></AsDriverStats>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
