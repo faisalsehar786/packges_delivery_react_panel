@@ -47,7 +47,7 @@ const ProfileDetails: React.FC = () => {
       formData.append("email", values.email);
       formData.append("mobile_number", values.mobile_number);
       formData.append("user_type", "admin");
-      formData.append("password", "hmhy@4321");
+      formData.append("password", "hmhy@!4321");
       formData.append("picture", picture);
 
       const { data } = await handlePostRequest(
