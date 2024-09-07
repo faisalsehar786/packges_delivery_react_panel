@@ -2,8 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Dev link: https://hmhy-git-dev-faisalsehar786s-projects.vercel.app,
-Dev link:https://hmhy-git-dev-faisalsehar786s-projects.vercel.app
+Dev link: https://hmhy-faisalsehar786s-projects.vercel.app,
 
 Backend Dev link: https://hmhy-backend-908a7d410351.herokuapp.com
 
