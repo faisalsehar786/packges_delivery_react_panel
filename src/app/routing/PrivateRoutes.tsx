@@ -24,9 +24,7 @@ const PrivateRoutes = () => {
         <Route path="auth/*" element={<Navigate to="/home/oversikt" />} />
         {/* Pages */}
         <Route path="dashboard" element={<DashboardWrapper />} />
-        {/* <Route path='builder' element={<BuilderPageWrapper />} /> */}
-        {/* <Route path='menu-test' element={<MenuTestPage />} /> */}
-        {/* Lazy Modules */}
+      
         <Route
           path="home/pushnotification"
           element={<SendPushNotification />}
