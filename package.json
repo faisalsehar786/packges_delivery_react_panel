@@ -3,6 +3,11 @@
   "version": "1.9.17",
   "private": true,
   "author": "Faisal Khan",
+  "engines": {
+  "node": "16.x",
+  "yarn": "1.22.x"
+},
+
   "homepage": "",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
