@@ -1,20 +1,26 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+# Use Node.js 16 as the base image
+FROM node:16
 
-# Set the working directory to /app
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy only the necessary files for dependency installation
+COPY package.json yarn.lock ./
 
-# Install any needed packages specified in package.json
-RUN npm install
+# Install dependencies using Yarn (ensuring consistency)
+RUN yarn install --frozen-lockfile
 
-# Make port 3000 available to the world outside this container
+# Copy the entire project (except files ignored by .dockerignore)
+COPY . .
+
+# Build the project (this creates the "build" folder)
+RUN yarn build
+
+# Expose the port used by your application
 EXPOSE 3000
 
-# Define environment variable
+# Set environment variables for production
 ENV NODE_ENV=production
 
-# Run the Node.js server when the container launches
-CMD ["npm", "start"]
+# Start the application using the built files
+CMD ["yarn", "start"]
