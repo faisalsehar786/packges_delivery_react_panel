@@ -4,10 +4,9 @@
   "private": true,
   "author": "Faisal Khan",
   "engines": {
-  "node": "16.x",
-  "yarn": "1.22.x"
-},
-
+    "node": "16.x",
+    "yarn": "1.22.x"
+  },
   "homepage": "",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
@@ -107,8 +106,8 @@
     "webpack-cli": "^4.8.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "serve -s build",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "prettier --check .",

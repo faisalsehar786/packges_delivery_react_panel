@@ -14,6 +14,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 
 # Build the project (this creates the "build" folder)
+
 RUN yarn build
 
 # Expose the port used by your application
